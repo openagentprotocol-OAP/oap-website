@@ -2,12 +2,14 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { OapMark } from './OapMark';
 
 const nav = [
   { href: '/spec', label: 'Spec' },
   { href: '/rfcs', label: 'RFCs' },
   { href: '/papers', label: 'Papers' },
   { href: '/conformance', label: 'Conformance' },
+  { href: '/certification', label: 'Certification' },
   { href: '/sdks', label: 'SDKs' },
   { href: '/implementations', label: 'Implementations' },
   { href: '/governance', label: 'Governance' },
@@ -20,9 +22,7 @@ export function Header() {
     <header className="sticky top-0 z-40 backdrop-blur-md bg-ink-900/70 border-b border-white/5">
       <div className="max-w-6xl mx-auto px-6 h-14 flex items-center gap-8">
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-7 h-7 rounded-md bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-[11px] font-bold text-white shadow-lg shadow-indigo-500/20">
-            O
-          </div>
+          <OapMark size={28} className="drop-shadow-[0_0_12px_rgba(99,102,241,0.35)]" />
           <span className="font-semibold text-[15px] tracking-tight">
             Open Agent Protocol
           </span>

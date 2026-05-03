@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Open Agent Protocol mark">
+  <title>Open Agent Protocol</title>
+  <defs>
+    <linearGradient id="oapStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818CF8"/>
+      <stop offset="55%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#A855F7"/>
+    </linearGradient>
+    <radialGradient id="oapCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C7D2FE" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#6366F1" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="oapGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <circle cx="128" cy="128" r="124" fill="#0A0A0B"/>
+
+  <circle cx="128" cy="128" r="80" fill="url(#oapCore)" opacity="0.45"/>
+
+  <circle cx="128" cy="128" r="92" fill="none" stroke="url(#oapStroke)" stroke-width="14" stroke-linecap="round" filter="url(#oapGlow)"/>
+
+  <circle cx="128" cy="128" r="58" fill="none" stroke="url(#oapStroke)" stroke-width="3" stroke-dasharray="2 6" opacity="0.75"/>
+
+  <g fill="url(#oapStroke)">
+    <circle cx="128" cy="36"  r="9"/>
+    <circle cx="207.7" cy="174" r="9"/>
+    <circle cx="48.3"  cy="174" r="9"/>
+  </g>
+
+  <g stroke="url(#oapStroke)" stroke-width="1.25" opacity="0.55">
+    <line x1="128"   y1="36"  x2="207.7" y2="174"/>
+    <line x1="207.7" y1="174" x2="48.3"  y2="174"/>
+    <line x1="48.3"  y1="174" x2="128"   y2="36"/>
+  </g>
+
+  <circle cx="128" cy="128" r="8" fill="#FFFFFF"/>
+</svg>
