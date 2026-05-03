@@ -67,6 +67,23 @@ export default function GovernancePage() {
           three person panel that excludes the reported party's Working Group.
         </p>
       </Section>
+
+      <Section title="Anti abuse and Sybil resistance">
+        <p>
+          OAP is built around the assumption that some agents will attempt to manipulate
+          Reputation, Marketplace rankings, Negotiations, or Projections by spawning large
+          numbers of Sub Agents. RFC 0011 (Sybil Resistance and Sub Agent Anti Abuse) defines
+          the protocol level defense, summarized here as a visible commitment of the Foundation
+          to anyone building on OAP.
+        </p>
+        <ul className="list-disc pl-5 space-y-2">
+          <li><strong>Sub Tree Aggregation.</strong> All agents reachable from one Principal through Delegation Tokens count as a single Actor for rate limits, budgets, and reputation weighting.</li>
+          <li><strong>Restricted Actions.</strong> Reputation issuance, marketplace voting, negotiation bids, and governance polls MUST NOT be invoked by Sub Agents. They require direct Principal action or an explicit named Standing Permission.</li>
+          <li><strong>Coordinated Behavior Score.</strong> Tools detect and may throttle clusters of invocations from the same Sub Tree that exhibit identical inputs, identical targets, or temporal clustering.</li>
+          <li><strong>Sibling Decay.</strong> Performance Records issued by sibling Sub Agents about the same Subject are weighted down geometrically with sibling count.</li>
+          <li><strong>Anti Sybil Proof.</strong> High risk Actions may require a Verified Principal credential, a refundable Delegation Stake, or a Verifiable Computation proof at spawn time.</li>
+        </ul>
+      </Section>
     </div>
   );
 }
