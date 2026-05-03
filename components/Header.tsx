@@ -9,6 +9,7 @@ const nav = [
   { href: '/spec', label: 'Spec' },
   { href: '/rfcs', label: 'RFCs' },
   { href: '/papers', label: 'Papers' },
+  { href: '/aql', label: 'AQL' },
   { href: '/conformance', label: 'Conformance' },
   { href: '/certification', label: 'Certification' },
   { href: '/sdks', label: 'SDKs' },
