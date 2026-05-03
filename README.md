@@ -31,7 +31,7 @@ parent/
 ## RFC sync
 
 `scripts/sync-rfcs.mjs` copies all `RFC-*.md` files from `oap-spec/rfcs/` and the
-core spec from `oap-spec/spec/OAP-CORE-1.0.md` into `content/`. The synced files
+core spec from `oap-spec/spec/v1.0/OAP-CORE-1.0.md` into `content/`. The synced files
 are gitignored so the website always reflects the canonical source of truth.
 
 In CI the same script can fetch from `raw.githubusercontent.com` instead of a

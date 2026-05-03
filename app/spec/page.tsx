@@ -19,7 +19,7 @@ export default async function SpecPage() {
         </p>
         <div className="flex gap-3 mt-5">
           <a
-            href="https://github.com/openagentprotocol-OAP/oap-spec/blob/main/spec/OAP-CORE-1.0.md"
+            href="https://github.com/openagentprotocol-OAP/oap-spec/blob/main/spec/v1.0/OAP-CORE-1.0.md"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-indigo-300 hover:text-indigo-200 underline underline-offset-4"

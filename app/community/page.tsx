@@ -38,8 +38,8 @@ export default function CommunityPage() {
           icon="📅"
           title="Working Group calls"
           desc="Each WG meets fortnightly. Public agendas, public minutes, no recording."
-          link="https://github.com/openagentprotocol-OAP/oap-spec/blob/main/MEETINGS.md"
-          cta="See schedule"
+          link="https://github.com/openagentprotocol-OAP/oap-spec/blob/main/governance/WORKING-GROUPS.md"
+          cta="See Working Groups"
         />
       </div>
 
