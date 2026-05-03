@@ -9,7 +9,9 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const SPEC_REPO = path.resolve(ROOT, '..', 'oap-spec');
+const SPEC_REPO = process.env.SPEC_REPO
+  ? path.resolve(process.env.SPEC_REPO)
+  : path.resolve(ROOT, '..', 'oap-spec');
 
 async function copyDir(src, dst, filter = () => true) {
   await fs.mkdir(dst, { recursive: true });

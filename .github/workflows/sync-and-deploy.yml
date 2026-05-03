@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: openagentprotocol-OAP/oap-spec
-          path: ../oap-spec
+          path: oap-spec
 
       - uses: actions/setup-node@v4
         with:
@@ -26,6 +26,8 @@ jobs:
 
       - run: npm ci
       - run: npm run sync-rfcs
+        env:
+          SPEC_REPO: ${{ github.workspace }}/oap-spec
       - run: npm run build
 
       # Deploy step intentionally omitted: configure based on chosen host.
