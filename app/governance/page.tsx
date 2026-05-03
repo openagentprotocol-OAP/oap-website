@@ -7,7 +7,7 @@ export default function GovernancePage() {
         <div className="text-xs font-semibold tracking-[0.18em] text-indigo-300/80 mb-3 uppercase">Governance</div>
         <h1 className="text-4xl font-bold tracking-tight mb-3">Open process. No single owner.</h1>
         <p className="text-white/60 leading-relaxed">
-          The Open Agent Protocol is stewarded by the OAP Foundation and developed in the open through
+          The Open Agent Protocol is stewarded by the OAP Stewards and developed in the open through
           numbered Working Groups. The protocol does not belong to any company, lab, or government. The
           governance model below is designed to keep it that way.
         </p>
@@ -56,13 +56,13 @@ export default function GovernancePage() {
           <li><strong>Rough consensus.</strong> Loud minorities are heard but not granted veto. Working Group chairs adjudicate.</li>
           <li><strong>Running code.</strong> A working implementation outweighs a clever argument. Every RFC must reference at least one prototype.</li>
           <li><strong>Vendor neutrality.</strong> No feature is added to advantage one implementer. Conflicts of interest must be declared.</li>
-          <li><strong>Transparent accounting.</strong> Foundation finances, sponsors, and trademark decisions are published quarterly.</li>
+          <li><strong>Transparent accounting.</strong> Project finances, sponsors, and trademark decisions are published quarterly.</li>
         </ul>
       </Section>
 
       <Section title="Code of conduct">
         <p>
-          The Foundation adopts the Contributor Covenant 2.1 across all repositories, working groups,
+          The project adopts the Contributor Covenant 2.1 across all repositories, working groups,
           and community channels. Reports go to <a href="mailto:conduct@openagentprotocol.org" className="underline underline-offset-4 text-indigo-300">conduct@openagentprotocol.org</a> and are handled by a rotating
           three person panel that excludes the reported party's Working Group.
         </p>
@@ -73,7 +73,7 @@ export default function GovernancePage() {
           OAP is built around the assumption that some agents will attempt to manipulate
           Reputation, Marketplace rankings, Negotiations, or Projections by spawning large
           numbers of Sub Agents. RFC 0011 (Sybil Resistance and Sub Agent Anti Abuse) defines
-          the protocol level defense, summarized here as a visible commitment of the Foundation
+          the protocol level defense, summarized here as a visible commitment of the Stewards
           to anyone building on OAP.
         </p>
         <ul className="list-disc pl-5 space-y-2">

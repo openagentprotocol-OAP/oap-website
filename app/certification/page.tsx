@@ -3,7 +3,7 @@ import { OapSeal } from '@/components/OapSeal';
 export const metadata = {
   title: 'Certification',
   description:
-    'OAP Verified is a self issued, cryptographically signed conformance receipt that any agent can verify autonomously. Optional foundation witnessing produces OAP Certified at L5.',
+    'OAP Verified is a self issued, cryptographically signed conformance receipt that any agent can verify autonomously. Optional stewards witnessing produces OAP Certified at L5.',
 };
 
 const tiers = [
@@ -18,10 +18,10 @@ const tiers = [
   {
     code: 'L5',
     name: 'OAP Certified',
-    issuer: 'Foundation witnessed',
+    issuer: 'Stewards witnessed',
     validity: '12 months',
-    proof: 'Implementation signature plus a foundation counter signature anchored in the public Transparency Log',
-    desc: 'The Foundation re executes the full suite against the implementation in a witnessed run, counter signs the receipt with its own DID, and writes the inclusion proof into the public append only Transparency Log. This is the highest level of mechanical and procedural assurance OAP defines.',
+    proof: 'Implementation signature plus a stewards counter signature anchored in the public Transparency Log',
+    desc: 'The Stewards re execute the full suite against the implementation in a witnessed run, counter signs the receipt with its own DID, and writes the inclusion proof into the public append only Transparency Log. This is the highest level of mechanical and procedural assurance OAP defines.',
   },
 ];
 
@@ -33,7 +33,7 @@ const threats = [
   { t: 'Test environment differs from production', m: 'Receipts record the exact target_uri tested. Verifying Agents MAY re run a randomised sample of behaviour tests against the live endpoint and refuse the receipt on mismatch.' },
   { t: 'Tampered test suite', m: 'Receipts pin the exact suite commit (sha256 of the test suite tree) and the engine version. Independent re execution detects divergence.' },
   { t: 'Counterfeit visual badge', m: 'The seal image is visual only. Trust always flows from the signed JSON receipt referenced by the manifest. The badge embeds a fingerprint and verify URL so any human or scraper can confirm authenticity in one click.' },
-  { t: 'Issuer impersonation', m: 'L5 counter signatures are made by a foundation DID whose key set is published at openagentprotocol.org/.well-known/oap-foundation-keys. Verifiers MUST resolve foundation keys from this canonical location.' },
+  { t: 'Issuer impersonation', m: 'L5 counter signatures are made by a stewards DID whose key set is published at openagentprotocol.org/.well-known/oap-stewards-keys. Verifiers MUST resolve stewards keys from this canonical location.' },
 ];
 
 export default function CertificationPage() {
@@ -47,7 +47,7 @@ export default function CertificationPage() {
             OAP defines two trust tiers. <strong className="text-white">OAP Verified</strong> is a self
             issued, cryptographically signed Conformance Receipt that any Agent can verify in
             milliseconds. <strong className="text-white">OAP Certified</strong> elevates the highest
-            Conformance Level (L5) with a foundation witnessed run anchored in a public Transparency
+            Conformance Level (L5) with a stewards witnessed run anchored in a public Transparency
             Log. Both tiers are open, free, and produce machine readable evidence rather than paper.
           </p>
         </div>
@@ -93,7 +93,7 @@ export default function CertificationPage() {
           <li><span className="text-indigo-300 font-semibold mr-2">3.</span><span className="text-white font-semibold">Chain.</span> The receipt embeds previous_receipt_hash, linking it to your prior receipt in a tamper evident chain.</li>
           <li><span className="text-indigo-300 font-semibold mr-2">4.</span><span className="text-white font-semibold">Sign.</span> <code className="text-white/85">npm run attest</code> produces an Ed25519 signature using the key bound to your implementation DID.</li>
           <li><span className="text-indigo-300 font-semibold mr-2">5.</span><span className="text-white font-semibold">Publish.</span> Host the JSON at <code className="text-white/85">manifest.conformance.receipt_uri</code>. Mirror is automatic via the public registry.</li>
-          <li><span className="text-indigo-300 font-semibold mr-2">6.</span><span className="text-white font-semibold">L5 only.</span> The Foundation re executes the suite in a witnessed run, counter signs, and anchors the inclusion proof in the public Transparency Log.</li>
+          <li><span className="text-indigo-300 font-semibold mr-2">6.</span><span className="text-white font-semibold">L5 only.</span> The Stewards re execute the suite in a witnessed run, counter signs, and anchors the inclusion proof in the public Transparency Log.</li>
         </ol>
       </div>
 
@@ -158,7 +158,7 @@ if (!result.valid) throw new Error(result.reason);
           audit, and produces a PDF that no Agent can parse. OAP operates at machine speed across
           millions of implementations. The certification model therefore mirrors the protocol itself:
           machine readable, cryptographically verifiable, openly governed, and free to anyone willing
-          to run the test suite. Foundation witnessing exists for the highest tier so that critical
+          to run the test suite. Stewards witnessing exists for the highest tier so that critical
           implementations carry independent corroboration, but the system never depends on a single
           authority to function.
         </p>

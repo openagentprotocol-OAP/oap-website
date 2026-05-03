@@ -6,7 +6,7 @@ const coreLevels = [
   { code: 'L2', name: 'Discoverable', desc: 'L1 plus live discover and invoke endpoints. Returns receipts. Honors GDPR data export. Default for production tools.' },
   { code: 'L3', name: 'Auditable', desc: 'L2 plus tamper evident hash chained receipts, public audit endpoint, incident reporting endpoint.' },
   { code: 'L4', name: 'Collaborative', desc: 'L3 plus support for the optional collaboration RFCs (sessions, negotiation, delegation, projections). Requires RFC 0016 User Sovereignty Charter compliance.' },
-  { code: 'L5', name: 'Certified', desc: 'L4 plus passing the official Conformance Test Suite operated by the Foundation. Renewed annually.' },
+  { code: 'L5', name: 'Certified', desc: 'L4 plus passing the official Conformance Test Suite operated by the Stewards. Renewed annually.' },
 ];
 
 const webLevels = [
@@ -31,7 +31,7 @@ export default function ConformancePage() {
           OAP defines six core Conformance Levels (L0 through L5) plus domain specific profiles for the
           Agent Native Web (W1 through W3, per RFC 0012) and the Commercial Layer (C1 through C3, per
           RFC 0013). Each higher level adds testable obligations without removing capabilities from lower
-          levels. Implementations declare their levels in the manifest, and the Foundation publishes an
+          levels. Implementations declare their levels in the manifest, and the Stewards publish an
           open Conformance Test Suite to verify them.
         </p>
       </div>

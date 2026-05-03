@@ -35,13 +35,13 @@ export async function Footer() {
           <ul className="space-y-1.5 text-white/55">
             <li><Link href="/license" className="hover:text-white">License</Link></li>
             <li><Link href="/trademark" className="hover:text-white">Trademark</Link></li>
-            <li><a href="mailto:foundation@openagentprotocol.org" className="hover:text-white">Contact</a></li>
+            <li><a href="mailto:contact@openagentprotocol.org" className="hover:text-white">Contact</a></li>
           </ul>
         </div>
       </div>
       <div className="border-t border-white/5">
         <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/40">
-          <div>© OAP Foundation. Specification text licensed under CC BY 4.0. Reference code under Apache 2.0.</div>
+          <div>© Open Agent Protocol contributors. Specification text licensed under CC BY 4.0. Reference code under Apache 2.0.</div>
           <div>v1.0 · {rfcs.length} RFCs in flight</div>
         </div>
       </div>

@@ -8,7 +8,7 @@ export default function TrademarkPage() {
       <div className="text-[15px] text-white/70 leading-relaxed space-y-4">
         <p>
           The terms <strong>Open Agent Protocol</strong>, <strong>OAP</strong>, the OAP wordmark, and the OAP logo are
-          trademarks of the OAP Foundation. The Foundation grants a free, non transferable license to
+          trademarks of the OAP Stewards. The Stewards grant a free, non transferable license to
           use these marks subject to the rules below.
         </p>
         <h2 className="text-xl font-bold text-white mt-6 mb-2 tracking-tight">Permitted use</h2>
@@ -19,7 +19,7 @@ export default function TrademarkPage() {
         </ul>
         <h2 className="text-xl font-bold text-white mt-6 mb-2 tracking-tight">Not permitted</h2>
         <ul className="list-disc pl-5 space-y-1 text-sm">
-          <li>Implying endorsement by, or affiliation with, the OAP Foundation without written consent.</li>
+          <li>Implying endorsement by, or affiliation with, the OAP Stewards without written consent.</li>
           <li>Using <strong>OAP</strong> as part of a product name (e.g. "OAP Pro", "OAPCloud").</li>
           <li>Modifying the logo or recoloring it outside the official palette.</li>
           <li>Claiming OAP conformance at a level the Conformance Test Suite has not certified.</li>

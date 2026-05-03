@@ -185,5 +185,5 @@ const pillars = [
   { code: 'PLANE 4', title: 'Commercial', desc: 'Per call pricing, usage based billing, and signed agreements without a payment processor in the loop.' },
   { code: 'PLANE 5', title: 'Governance', desc: 'Four layer policy stack: platform, organization, scope, personal. Every decision recorded.' },
   { code: 'PLANE 6', title: 'Accountability', desc: 'Hash chained receipts. Complete, tamper evident audit trail across the entire invocation tree.' },
-  { code: 'PLANE 7', title: 'Foundation', desc: 'GDPR primitives, deletion endpoints, transparency reports, dispute resolution. Built in, not bolted on.' },
+  { code: 'PLANE 7', title: 'Coordination', desc: 'GDPR primitives, deletion endpoints, transparency reports, dispute resolution. Built in, not bolted on.' },
 ];
