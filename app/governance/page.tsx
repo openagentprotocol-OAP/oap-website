@@ -98,10 +98,14 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 const workingGroups = [
-  { code: 'WG-CORE',  name: 'Core Protocol',           scope: 'Identity, Discovery, Invocation, Receipts.' },
-  { code: 'WG-CCC',   name: 'Confidentiality and Compliance', scope: 'Personas, Projections, GDPR.' },
-  { code: 'WG-MARK',  name: 'Marketplace and Discovery', scope: 'Workflows, ranking, search.' },
-  { code: 'WG-TRUST', name: 'Trust and Reputation',    scope: 'Performance Records, dispute resolution.' },
-  { code: 'WG-COMM',  name: 'Commercial',              scope: 'Pricing, billing, agreements.' },
-  { code: 'WG-TEST',  name: 'Conformance and Testing', scope: 'Test suite, certification programme.' },
+  { code: 'WG-CORE',  name: 'Core Protocol',                scope: 'Identity, Discovery, Invocation, Receipts, Sessions, Delegation, Entities, Memory Exchange.' },
+  { code: 'WG-CCC',   name: 'Confidentiality and Compliance', scope: 'Personas, Projections, Negotiation, GDPR, Irreversibility and Cooling Off Periods.' },
+  { code: 'WG-MARK',  name: 'Marketplace and Discovery',    scope: 'Workflows, ranking, search, Composable Software Primitives.' },
+  { code: 'WG-TRUST', name: 'Trust and Reputation',         scope: 'Performance Records, dispute resolution, Sybil resistance.' },
+  { code: 'WG-WALL',  name: 'Wallet and Settlement',        scope: 'Wallet statements, settlement flows, payment instruments.' },
+  { code: 'WG-PRIV',  name: 'Privacy and Governance',       scope: 'User Sovereignty Charter, human escalation path, data rights, minors and vulnerable persons.' },
+  { code: 'WG-SEC',   name: 'Security and Cryptography',    scope: 'Signatures, encryption, key management, quantum resistant migration.' },
+  { code: 'WG-IMPL',  name: 'Implementation and Conformance', scope: 'Test suite, certification programme, reference implementations.' },
+  { code: 'WG-WEB',   name: 'Web Integration',              scope: 'Agent native web, well known surfaces, Knowledge Nodes, C2PA, federation.' },
+  { code: 'WG-COMM',  name: 'Commercial Layer',             scope: 'Commerce models, Commerce Primitives, Procurement, Offers, Settlement, Match Broker rules.' },
 ];

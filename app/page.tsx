@@ -141,7 +141,7 @@ export default async function HomePage() {
           </Link>
         </div>
         <div className="grid md:grid-cols-2 gap-3">
-          {rfcs.slice(0, 8).map((r) => (
+          {rfcs.slice(0, 12).map((r) => (
             <Link
               key={r.id}
               href={`/rfcs/${r.id}`}

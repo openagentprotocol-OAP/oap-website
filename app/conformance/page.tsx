@@ -1,12 +1,24 @@
 export const metadata = { title: 'Conformance Levels' };
 
-const levels = [
+const coreLevels = [
   { code: 'L0', name: 'Compatible', desc: 'Reads and parses OAP manifests. May invoke actions but does not publish one. Suitable for clients and crawlers.' },
   { code: 'L1', name: 'Identifiable', desc: 'Publishes a signed manifest with a verifiable DID. Static identity only, no live invocation endpoint.' },
   { code: 'L2', name: 'Discoverable', desc: 'L1 plus live discover and invoke endpoints. Returns receipts. Honors GDPR data export. Default for production tools.' },
   { code: 'L3', name: 'Auditable', desc: 'L2 plus tamper evident hash chained receipts, public audit endpoint, incident reporting endpoint.' },
-  { code: 'L4', name: 'Collaborative', desc: 'L3 plus support for the optional collaboration RFCs (sessions, negotiation, delegation, projections).' },
+  { code: 'L4', name: 'Collaborative', desc: 'L3 plus support for the optional collaboration RFCs (sessions, negotiation, delegation, projections). Requires RFC 0016 User Sovereignty Charter compliance.' },
   { code: 'L5', name: 'Certified', desc: 'L4 plus passing the official Conformance Test Suite operated by the Foundation. Renewed annually.' },
+];
+
+const webLevels = [
+  { code: 'W1', name: 'Manifest', desc: 'Origin publishes a minimal manifest at /.well-known/oap/manifest.json with identity, actions, and schemas. Agents can discover the origin without scraping.' },
+  { code: 'W2', name: 'Surfaces', desc: 'W1 plus at least one Knowledge Node per data class declared in the manifest. Human surface and agent surface coexist at the same origin.' },
+  { code: 'W3', name: 'Federated', desc: 'W2 plus DID bound to a Verifiable Credential, participation in a public registry, and Asset Descriptors for all modality assets.' },
+];
+
+const commerceLevels = [
+  { code: 'C1', name: 'Priced', desc: 'Provider publishes machine readable cost information on every action. Commerce model declared in the manifest.' },
+  { code: 'C2', name: 'Comparable', desc: 'C1 plus cost disclosure (Build versus Buy Decision Protocol). Consumers can compare token equivalent cost, latency, and quality evidence across providers.' },
+  { code: 'C3', name: 'Auditable', desc: 'C2 plus Settlement Statements anchored in a Reconciliation Log. Full consumption proof chain for every billable unit.' },
 ];
 
 export default function ConformancePage() {
@@ -14,20 +26,49 @@ export default function ConformancePage() {
     <div className="max-w-5xl mx-auto px-6 py-16">
       <div className="mb-12">
         <div className="text-xs font-semibold tracking-[0.18em] text-indigo-300/80 mb-3 uppercase">Conformance</div>
-        <h1 className="text-4xl font-bold tracking-tight mb-3">Six levels, no compromises.</h1>
+        <h1 className="text-4xl font-bold tracking-tight mb-3">Progressive levels, domain profiles.</h1>
         <p className="text-white/60 leading-relaxed max-w-3xl">
-          OAP defines six progressive Conformance Levels. Each higher level adds testable obligations
-          without removing capabilities from lower levels. Implementations declare a level in their
-          manifest, and the Foundation publishes an open Conformance Test Suite to verify it.
+          OAP defines six core Conformance Levels (L0 through L5) plus domain specific profiles for the
+          Agent Native Web (W1 through W3, per RFC 0012) and the Commercial Layer (C1 through C3, per
+          RFC 0013). Each higher level adds testable obligations without removing capabilities from lower
+          levels. Implementations declare their levels in the manifest, and the Foundation publishes an
+          open Conformance Test Suite to verify them.
         </p>
       </div>
 
+      <h2 className="text-xl font-bold text-white mb-4 tracking-tight">Core Levels</h2>
       <div className="space-y-3 mb-12">
-        {levels.map((l) => (
+        {coreLevels.map((l) => (
           <div key={l.code} className="grid grid-cols-[80px_1fr] gap-6 p-6 rounded-xl border border-white/8 bg-white/[0.02]">
             <div>
               <div className="text-3xl font-bold text-white">{l.code}</div>
               <div className="text-xs uppercase tracking-wider text-indigo-300/80 mt-1">{l.name}</div>
+            </div>
+            <div className="text-sm text-white/65 leading-relaxed self-center">{l.desc}</div>
+          </div>
+        ))}
+      </div>
+
+      <h2 className="text-xl font-bold text-white mb-4 tracking-tight">Web Integration Profile (RFC 0012)</h2>
+      <div className="space-y-3 mb-12">
+        {webLevels.map((l) => (
+          <div key={l.code} className="grid grid-cols-[80px_1fr] gap-6 p-6 rounded-xl border border-white/8 bg-white/[0.02]">
+            <div>
+              <div className="text-3xl font-bold text-white">{l.code}</div>
+              <div className="text-xs uppercase tracking-wider text-emerald-300/80 mt-1">{l.name}</div>
+            </div>
+            <div className="text-sm text-white/65 leading-relaxed self-center">{l.desc}</div>
+          </div>
+        ))}
+      </div>
+
+      <h2 className="text-xl font-bold text-white mb-4 tracking-tight">Commercial Layer Profile (RFC 0013)</h2>
+      <div className="space-y-3 mb-12">
+        {commerceLevels.map((l) => (
+          <div key={l.code} className="grid grid-cols-[80px_1fr] gap-6 p-6 rounded-xl border border-white/8 bg-white/[0.02]">
+            <div>
+              <div className="text-3xl font-bold text-white">{l.code}</div>
+              <div className="text-xs uppercase tracking-wider text-amber-300/80 mt-1">{l.name}</div>
             </div>
             <div className="text-sm text-white/65 leading-relaxed self-center">{l.desc}</div>
           </div>
