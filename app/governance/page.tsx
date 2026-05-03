@@ -108,4 +108,5 @@ const workingGroups = [
   { code: 'WG-IMPL',  name: 'Implementation and Conformance', scope: 'Test suite, certification programme, reference implementations.' },
   { code: 'WG-WEB',   name: 'Web Integration',              scope: 'Agent native web, well known surfaces, Knowledge Nodes, C2PA, federation.' },
   { code: 'WG-COMM',  name: 'Commercial Layer',             scope: 'Commerce models, Commerce Primitives, Procurement, Offers, Settlement, Match Broker rules.' },
+  { code: 'WG-DATA',  name: 'Data Plane',                   scope: 'Agent Query Language, Verifiable Indexes, Manifest Subscription, Storage Substrate, Schema Negotiation.' },
 ];
