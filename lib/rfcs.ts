@@ -70,3 +70,43 @@ export async function getCoreSpec(): Promise<string | null> {
     return null;
   }
 }
+
+const PAPERS_DIR = path.join(process.cwd(), 'content', 'papers');
+
+export type PaperMeta = {
+  slug: string;
+  filename: string;
+  title: string;
+};
+
+export type Paper = PaperMeta & { content: string };
+
+export async function listPapers(): Promise<PaperMeta[]> {
+  let files: string[] = [];
+  try {
+    files = await fs.readdir(PAPERS_DIR);
+  } catch {
+    return [];
+  }
+  const metas: PaperMeta[] = [];
+  for (const f of files) {
+    if (!f.endsWith('.md')) continue;
+    const md = await fs.readFile(path.join(PAPERS_DIR, f), 'utf8');
+    const titleMatch = md.match(/^#\s+(.+)$/m);
+    metas.push({
+      slug: f.replace(/\.md$/, ''),
+      filename: f,
+      title: titleMatch?.[1]?.trim() ?? f,
+    });
+  }
+  metas.sort((a, b) => a.slug.localeCompare(b.slug));
+  return metas;
+}
+
+export async function getPaper(slug: string): Promise<Paper | null> {
+  const metas = await listPapers();
+  const meta = metas.find((m) => m.slug === slug);
+  if (!meta) return null;
+  const content = await fs.readFile(path.join(PAPERS_DIR, meta.filename), 'utf8');
+  return { ...meta, content };
+}

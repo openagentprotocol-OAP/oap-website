@@ -30,7 +30,7 @@ async function main() {
   await copyDir(rfcSrc, rfcDst, (n) => n.endsWith('.md'));
   console.log('Synced RFCs to', rfcDst);
 
-  const specSrc = path.join(SPEC_REPO, 'spec', 'OAP-CORE-1.0.md');
+  const specSrc = path.join(SPEC_REPO, 'spec', 'v1.0', 'OAP-CORE-1.0.md');
   const specDst = path.join(ROOT, 'content', 'spec', 'OAP-CORE-1.0.md');
   await fs.mkdir(path.dirname(specDst), { recursive: true });
   try {
@@ -38,6 +38,16 @@ async function main() {
     console.log('Synced spec to', specDst);
   } catch (e) {
     console.warn('Spec source not found at', specSrc, '- skipping');
+  }
+
+  const papersSrc = path.join(SPEC_REPO, 'papers');
+  const papersDst = path.join(ROOT, 'content', 'papers');
+  try {
+    await fs.rm(papersDst, { recursive: true, force: true });
+    await copyDir(papersSrc, papersDst, (n) => n.endsWith('.md'));
+    console.log('Synced papers to', papersDst);
+  } catch (e) {
+    console.warn('Papers source not found at', papersSrc, '- skipping');
   }
 }
 
