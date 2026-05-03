@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import { OapMark } from './OapMark';
 
 const nav = [
@@ -18,23 +19,39 @@ const nav = [
 
 export function Header() {
   const path = usePathname();
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [path]);
+
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
+
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-ink-900/70 border-b border-white/5">
-      <div className="max-w-6xl mx-auto px-6 h-14 flex items-center gap-8">
-        <Link href="/" className="flex items-center gap-2.5 group">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center gap-4">
+        <Link href="/" className="flex items-center gap-2.5 shrink-0">
           <OapMark size={28} className="drop-shadow-[0_0_12px_rgba(99,102,241,0.35)]" />
-          <span className="font-semibold text-[15px] tracking-tight">
-            Open Agent Protocol
+          <span className="font-semibold text-[15px] tracking-tight whitespace-nowrap">
+            <span className="hidden sm:inline">Open Agent Protocol</span>
+            <span className="sm:hidden">OAP</span>
           </span>
         </Link>
-        <nav className="hidden md:flex items-center gap-1 text-sm">
+
+        <nav className="hidden lg:flex items-center gap-0.5 text-[13px] mx-auto">
           {nav.map((item) => {
             const active = path === item.href || path.startsWith(item.href + '/');
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`px-3 py-1.5 rounded-md transition-colors ${
+                className={`px-2.5 py-1.5 rounded-md transition-colors whitespace-nowrap ${
                   active
                     ? 'text-white bg-white/5'
                     : 'text-white/55 hover:text-white hover:bg-white/[0.03]'
@@ -45,16 +62,73 @@ export function Header() {
             );
           })}
         </nav>
+
         <a
           href="https://github.com/openagentprotocol-OAP/oap-spec"
           target="_blank"
           rel="noopener noreferrer"
-          className="ml-auto text-xs text-white/55 hover:text-white transition-colors flex items-center gap-1.5"
+          className="hidden sm:flex ml-auto lg:ml-0 text-xs text-white/55 hover:text-white transition-colors items-center gap-1.5 shrink-0"
+          aria-label="GitHub"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          GitHub
+          <span className="hidden md:inline">GitHub</span>
         </a>
+
+        <button
+          type="button"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="lg:hidden ml-auto inline-flex items-center justify-center w-9 h-9 rounded-md text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            {open ? (
+              <>
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </>
+            ) : (
+              <>
+                <line x1="3" y1="7" x2="21" y2="7" />
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="17" x2="21" y2="17" />
+              </>
+            )}
+          </svg>
+        </button>
       </div>
+
+      {open && (
+        <div className="lg:hidden border-t border-white/5 bg-ink-900/95 backdrop-blur-md max-h-[calc(100vh-3.5rem)] overflow-y-auto">
+          <nav className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-col">
+            {nav.map((item) => {
+              const active = path === item.href || path.startsWith(item.href + '/');
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`px-3 py-2.5 rounded-md text-sm transition-colors ${
+                    active
+                      ? 'text-white bg-white/5'
+                      : 'text-white/65 hover:text-white hover:bg-white/[0.03]'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+            <a
+              href="https://github.com/openagentprotocol-OAP/oap-spec"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-2.5 rounded-md text-sm text-white/65 hover:text-white hover:bg-white/[0.03] transition-colors flex items-center gap-2"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
