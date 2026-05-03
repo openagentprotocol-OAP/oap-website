@@ -1,0 +1,48 @@
+@import 'highlight.js/styles/github-dark.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body { background: #0A0A0B; }
+
+::selection { background: rgba(99,102,241,0.35); color: white; }
+
+/* Subtle grid background for hero */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+}
+
+/* Markdown / prose */
+.prose-oap {
+  color: rgba(255,255,255,0.78);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+.prose-oap h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; color: #fff; margin: 0 0 1rem; }
+.prose-oap h2 { font-size: 1.375rem; font-weight: 700; letter-spacing: -0.015em; color: #fff; margin: 2.5rem 0 0.75rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); }
+.prose-oap h2:first-of-type { border-top: none; padding-top: 0; }
+.prose-oap h3 { font-size: 1.0625rem; font-weight: 700; color: #fff; margin: 1.75rem 0 0.5rem; }
+.prose-oap h4 { font-size: 0.9375rem; font-weight: 700; color: rgba(255,255,255,0.92); margin: 1.25rem 0 0.5rem; }
+.prose-oap p { margin: 0.75rem 0; }
+.prose-oap a { color: #A5B4FC; text-decoration: underline; text-decoration-color: rgba(165,180,252,0.35); text-underline-offset: 3px; }
+.prose-oap a:hover { text-decoration-color: rgba(165,180,252,0.9); }
+.prose-oap strong { color: #fff; font-weight: 600; }
+.prose-oap code { background: rgba(255,255,255,0.06); padding: 1px 6px; border-radius: 4px; font-size: 0.875em; color: #C7D2FE; }
+.prose-oap pre { background: #0E0E11 !important; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 16px 18px; overflow-x: auto; margin: 1rem 0; }
+.prose-oap pre code { background: none; padding: 0; color: inherit; font-size: 0.8125rem; }
+.prose-oap ul, .prose-oap ol { padding-left: 1.5rem; margin: 0.75rem 0; }
+.prose-oap li { margin: 0.25rem 0; }
+.prose-oap blockquote { border-left: 3px solid rgba(99,102,241,0.5); padding: 4px 16px; margin: 1rem 0; color: rgba(255,255,255,0.65); background: rgba(99,102,241,0.04); border-radius: 0 6px 6px 0; }
+.prose-oap table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.875rem; }
+.prose-oap th, .prose-oap td { border: 1px solid rgba(255,255,255,0.08); padding: 8px 12px; text-align: left; }
+.prose-oap th { background: rgba(255,255,255,0.04); font-weight: 600; color: #fff; }
+.prose-oap hr { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 2rem 0; }

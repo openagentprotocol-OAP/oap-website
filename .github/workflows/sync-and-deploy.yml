@@ -1,0 +1,35 @@
+name: Sync RFCs and deploy
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 */6 * * *'   # every 6 hours, picks up new RFCs from oap-spec
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Checkout oap-spec
+        uses: actions/checkout@v4
+        with:
+          repository: openagentprotocol-OAP/oap-spec
+          path: ../oap-spec
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - run: npm ci
+      - run: npm run sync-rfcs
+      - run: npm run build
+
+      # Deploy step intentionally omitted: configure based on chosen host.
+      # Examples:
+      #   - Cloudflare Pages: connect repo and let it build automatically.
+      #   - Vercel: add the Vercel GitHub integration.
+      #   - Netlify: add the Netlify GitHub integration.
