@@ -63,7 +63,7 @@ export default function GovernancePage() {
       <Section title="Code of conduct">
         <p>
           The project adopts the Contributor Covenant 2.1 across all repositories, working groups,
-          and community channels. Reports go to <a href="mailto:conduct@openagentprotocol.org" className="underline underline-offset-4 text-indigo-300">conduct@openagentprotocol.org</a> and are handled by a rotating
+          and community channels. Reports go to <a href="mailto:conduct@openagentprotocol.eu" className="underline underline-offset-4 text-indigo-300">conduct@openagentprotocol.eu</a> and are handled by a rotating
           three person panel that excludes the reported party's Working Group.
         </p>
       </Section>

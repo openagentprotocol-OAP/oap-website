@@ -317,7 +317,7 @@ function resolveIntent(intent: any, candidates: any[]) {
   return {
     response_id: `urn:oap:intent-response:demo-${Date.now()}`,
     intent_id: intent.intent_id,
-    resolver_did: 'did:web:playground.openagentprotocol.org',
+    resolver_did: 'did:web:playground.openagentprotocol.eu',
     resolver_role: 'match_broker',
     evaluated_at: new Date().toISOString(),
     candidates: accepted,

@@ -14,7 +14,7 @@ export default function TrademarkPage() {
         <h2 className="text-xl font-bold text-white mt-6 mb-2 tracking-tight">Permitted use</h2>
         <ul className="list-disc pl-5 space-y-1 text-sm">
           <li>Stating that your product implements the Open Agent Protocol.</li>
-          <li>Linking to <code className="font-mono text-xs">openagentprotocol.org</code>.</li>
+          <li>Linking to <code className="font-mono text-xs">openagentprotocol.eu</code>.</li>
           <li>Reproducing the wordmark in articles, talks, and academic work.</li>
         </ul>
         <h2 className="text-xl font-bold text-white mt-6 mb-2 tracking-tight">Not permitted</h2>
@@ -25,7 +25,7 @@ export default function TrademarkPage() {
           <li>Claiming OAP conformance at a level the Conformance Test Suite has not certified.</li>
         </ul>
         <p className="text-sm">
-          Questions: <a href="mailto:trademark@openagentprotocol.org" className="text-indigo-300 underline underline-offset-4">trademark@openagentprotocol.org</a>.
+          Questions: <a href="mailto:trademark@openagentprotocol.eu" className="text-indigo-300 underline underline-offset-4">trademark@openagentprotocol.eu</a>.
         </p>
       </div>
     </div>

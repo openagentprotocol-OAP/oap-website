@@ -33,7 +33,7 @@ const threats = [
   { t: 'Test environment differs from production', m: 'Receipts record the exact target_uri tested. Verifying Agents MAY re run a randomised sample of behaviour tests against the live endpoint and refuse the receipt on mismatch.' },
   { t: 'Tampered test suite', m: 'Receipts pin the exact suite commit (sha256 of the test suite tree) and the engine version. Independent re execution detects divergence.' },
   { t: 'Counterfeit visual badge', m: 'The seal image is visual only. Trust always flows from the signed JSON receipt referenced by the manifest. The badge embeds a fingerprint and verify URL so any human or scraper can confirm authenticity in one click.' },
-  { t: 'Issuer impersonation', m: 'L5 counter signatures are made by a stewards DID whose key set is published at openagentprotocol.org/.well-known/oap-stewards-keys. Verifiers MUST resolve stewards keys from this canonical location.' },
+  { t: 'Issuer impersonation', m: 'L5 counter signatures are made by a stewards DID whose key set is published at openagentprotocol.eu/.well-known/oap-stewards-keys. Verifiers MUST resolve stewards keys from this canonical location.' },
 ];
 
 export default function CertificationPage() {

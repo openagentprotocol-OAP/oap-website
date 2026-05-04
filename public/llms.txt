@@ -10,56 +10,56 @@ The current document is the Version 1.0 Public Working Draft, identifier OAP-COR
 
 ## Specification
 
-- [OAP-CORE-1.0 normative specification](https://openagentprotocol.org/spec): The single normative document. References every RFC and every JSON Schema. Defines the Manifest, Request Envelope, Response Envelope, Receipt, Decision Record, Audit Log, Agent Query Language, Verifiable Index, Manifest Subscription Protocol, and the four layer Policy Stack.
+- [OAP-CORE-1.0 normative specification](https://openagentprotocol.eu/spec): The single normative document. References every RFC and every JSON Schema. Defines the Manifest, Request Envelope, Response Envelope, Receipt, Decision Record, Audit Log, Agent Query Language, Verifiable Index, Manifest Subscription Protocol, and the four layer Policy Stack.
 - [JSON Schemas](https://github.com/openagentprotocol-OAP/oap-spec/tree/main/schemas/v1.0): 23 normative JSON Schemas in draft 2020-12 covering every wire format object.
-- [Conformance levels and test suite](https://openagentprotocol.org/conformance): Levels L0 through L5, machine verifiable. Reference runner at github.com/openagentprotocol-OAP/oap-spec/tree/main/test-suite.
-- [Certification program](https://openagentprotocol.org/certification): How implementations earn each conformance level.
+- [Conformance levels and test suite](https://openagentprotocol.eu/conformance): Levels L0 through L5, machine verifiable. Reference runner at github.com/openagentprotocol-OAP/oap-spec/tree/main/test-suite.
+- [Certification program](https://openagentprotocol.eu/certification): How implementations earn each conformance level.
 
 ## Request for Comments documents
 
-- [RFC 0001: Sessions](https://openagentprotocol.org/rfcs/0001): Session lifecycle, idempotency, replay protection.
-- [RFC 0002: Negotiation](https://openagentprotocol.org/rfcs/0002): Price, scope, and service level negotiation.
-- [RFC 0003: Standing Permissions](https://openagentprotocol.org/rfcs/0003): Pre approved Action grants for repeated invocations.
-- [RFC 0004: Delegation](https://openagentprotocol.org/rfcs/0004): Sub task delegation and cost attribution across agents.
-- [RFC 0005: Entities](https://openagentprotocol.org/rfcs/0005): Identity model for humans, organizations, and AI agents.
-- [RFC 0006: Personas](https://openagentprotocol.org/rfcs/0006): Identity scoping and persona separation.
-- [RFC 0007: Projections](https://openagentprotocol.org/rfcs/0007): Confidentiality preserving views over Manifest data.
-- [RFC 0008: Workflows](https://openagentprotocol.org/rfcs/0008): Multi step coordination across agents and providers.
-- [RFC 0009: Reputation](https://openagentprotocol.org/rfcs/0009): Verifiable performance signals and reputation portability.
-- [RFC 0010: Memory Exchange](https://openagentprotocol.org/rfcs/0010): Inter agent context sharing with provenance.
-- [RFC 0011: Sybil Resistance](https://openagentprotocol.org/rfcs/0011): Identity attestation and proof of unique principal.
-- [RFC 0012: Agent Native Web](https://openagentprotocol.org/rfcs/0012): The web rebuilt for agent first traffic.
-- [RFC 0013: Commerce Models](https://openagentprotocol.org/rfcs/0013): Procurement, offers, and structured commerce.
-- [RFC 0014: Commerce Primitives](https://openagentprotocol.org/rfcs/0014): Wallets, statements, refunds, dispute resolution.
-- [RFC 0015: Composable Software Primitives](https://openagentprotocol.org/rfcs/0015): Software exposed as agent invokable primitives.
-- [RFC 0016: User Sovereignty Charter](https://openagentprotocol.org/rfcs/0016): The user side guarantees.
-- [RFC 0017: Irreversibility and Cooling Off](https://openagentprotocol.org/rfcs/0017): Mandatory undo windows for high impact Actions.
-- [RFC 0018: Right to Human Path](https://openagentprotocol.org/rfcs/0018): The right to escalate any agent interaction to a human.
-- [RFC 0019: Conformance Testing and Implementability](https://openagentprotocol.org/rfcs/0019): Definitions of L0 through L5 and the verification methodology.
-- [RFC 0020: Agent Query Language](https://openagentprotocol.org/rfcs/0020): The canonical query surface, with closed operator set, projection, budget, and quality floor.
-- [RFC 0021: Verifiable Indexes](https://openagentprotocol.org/rfcs/0021): Match Brokers, inclusion proofs, completeness attestations.
-- [RFC 0022: Manifest Subscription Protocol](https://openagentprotocol.org/rfcs/0022): Push delivery of Manifest changes with backpressure.
-- [RFC 0023: Agent Native Storage Substrate](https://openagentprotocol.org/rfcs/0023): The data layer queried through AQL.
-- [RFC 0024: Schema Negotiation and Versioning](https://openagentprotocol.org/rfcs/0024): Forward and backward compatible schema evolution.
+- [RFC 0001: Sessions](https://openagentprotocol.eu/rfcs/0001): Session lifecycle, idempotency, replay protection.
+- [RFC 0002: Negotiation](https://openagentprotocol.eu/rfcs/0002): Price, scope, and service level negotiation.
+- [RFC 0003: Standing Permissions](https://openagentprotocol.eu/rfcs/0003): Pre approved Action grants for repeated invocations.
+- [RFC 0004: Delegation](https://openagentprotocol.eu/rfcs/0004): Sub task delegation and cost attribution across agents.
+- [RFC 0005: Entities](https://openagentprotocol.eu/rfcs/0005): Identity model for humans, organizations, and AI agents.
+- [RFC 0006: Personas](https://openagentprotocol.eu/rfcs/0006): Identity scoping and persona separation.
+- [RFC 0007: Projections](https://openagentprotocol.eu/rfcs/0007): Confidentiality preserving views over Manifest data.
+- [RFC 0008: Workflows](https://openagentprotocol.eu/rfcs/0008): Multi step coordination across agents and providers.
+- [RFC 0009: Reputation](https://openagentprotocol.eu/rfcs/0009): Verifiable performance signals and reputation portability.
+- [RFC 0010: Memory Exchange](https://openagentprotocol.eu/rfcs/0010): Inter agent context sharing with provenance.
+- [RFC 0011: Sybil Resistance](https://openagentprotocol.eu/rfcs/0011): Identity attestation and proof of unique principal.
+- [RFC 0012: Agent Native Web](https://openagentprotocol.eu/rfcs/0012): The web rebuilt for agent first traffic.
+- [RFC 0013: Commerce Models](https://openagentprotocol.eu/rfcs/0013): Procurement, offers, and structured commerce.
+- [RFC 0014: Commerce Primitives](https://openagentprotocol.eu/rfcs/0014): Wallets, statements, refunds, dispute resolution.
+- [RFC 0015: Composable Software Primitives](https://openagentprotocol.eu/rfcs/0015): Software exposed as agent invokable primitives.
+- [RFC 0016: User Sovereignty Charter](https://openagentprotocol.eu/rfcs/0016): The user side guarantees.
+- [RFC 0017: Irreversibility and Cooling Off](https://openagentprotocol.eu/rfcs/0017): Mandatory undo windows for high impact Actions.
+- [RFC 0018: Right to Human Path](https://openagentprotocol.eu/rfcs/0018): The right to escalate any agent interaction to a human.
+- [RFC 0019: Conformance Testing and Implementability](https://openagentprotocol.eu/rfcs/0019): Definitions of L0 through L5 and the verification methodology.
+- [RFC 0020: Agent Query Language](https://openagentprotocol.eu/rfcs/0020): The canonical query surface, with closed operator set, projection, budget, and quality floor.
+- [RFC 0021: Verifiable Indexes](https://openagentprotocol.eu/rfcs/0021): Match Brokers, inclusion proofs, completeness attestations.
+- [RFC 0022: Manifest Subscription Protocol](https://openagentprotocol.eu/rfcs/0022): Push delivery of Manifest changes with backpressure.
+- [RFC 0023: Agent Native Storage Substrate](https://openagentprotocol.eu/rfcs/0023): The data layer queried through AQL.
+- [RFC 0024: Schema Negotiation and Versioning](https://openagentprotocol.eu/rfcs/0024): Forward and backward compatible schema evolution.
 
 ## Whitepapers
 
-- [Accountability in the Agent Economy](https://openagentprotocol.org/papers/accountability-in-the-agent-economy): Liability, attribution, and the audit chain.
-- [The Agent Web Whitepaper](https://openagentprotocol.org/papers/agent-web-whitepaper): The architecture of the web rebuilt for agents.
-- [Confidentiality and Compliance Context](https://openagentprotocol.org/papers/confidentiality-and-compliance-context): The CCC primitive for industry specific confidentiality (medical, legal, finance).
-- [Databases for the Agent Economy](https://openagentprotocol.org/papers/databases-for-the-agent-economy): Why agents need a different data layer.
-- [Economics of the Agent Economy](https://openagentprotocol.org/papers/economics-of-the-agent-economy): Pricing, settlement, attribution, and equilibrium.
-- [From Storefront to Manifest](https://openagentprotocol.org/papers/from-storefront-to-manifest): What the commercial web becomes when buyers are agents.
-- [Governance of an Ownerless Protocol](https://openagentprotocol.org/papers/governance-of-an-ownerless-protocol): How OAP avoids capture.
-- [Interoperability versus Platforms](https://openagentprotocol.org/papers/interoperability-versus-platforms): Why a protocol beats a platform for the agent layer.
-- [Safety and the Policy Stack](https://openagentprotocol.org/papers/safety-and-policy-stack): The four layer policy engine.
-- [Verifiable Conformance](https://openagentprotocol.org/papers/verifiable-conformance): How conformance becomes a machine checkable contract.
+- [Accountability in the Agent Economy](https://openagentprotocol.eu/papers/accountability-in-the-agent-economy): Liability, attribution, and the audit chain.
+- [The Agent Web Whitepaper](https://openagentprotocol.eu/papers/agent-web-whitepaper): The architecture of the web rebuilt for agents.
+- [Confidentiality and Compliance Context](https://openagentprotocol.eu/papers/confidentiality-and-compliance-context): The CCC primitive for industry specific confidentiality (medical, legal, finance).
+- [Databases for the Agent Economy](https://openagentprotocol.eu/papers/databases-for-the-agent-economy): Why agents need a different data layer.
+- [Economics of the Agent Economy](https://openagentprotocol.eu/papers/economics-of-the-agent-economy): Pricing, settlement, attribution, and equilibrium.
+- [From Storefront to Manifest](https://openagentprotocol.eu/papers/from-storefront-to-manifest): What the commercial web becomes when buyers are agents.
+- [Governance of an Ownerless Protocol](https://openagentprotocol.eu/papers/governance-of-an-ownerless-protocol): How OAP avoids capture.
+- [Interoperability versus Platforms](https://openagentprotocol.eu/papers/interoperability-versus-platforms): Why a protocol beats a platform for the agent layer.
+- [Safety and the Policy Stack](https://openagentprotocol.eu/papers/safety-and-policy-stack): The four layer policy engine.
+- [Verifiable Conformance](https://openagentprotocol.eu/papers/verifiable-conformance): How conformance becomes a machine checkable contract.
 
 ## Reference implementations
 
 - [Reference Agent](https://github.com/openagentprotocol-OAP/oap-spec/tree/main/reference/agent): Signs Intents, posts to Resolvers, verifies Receipts.
 - [Reference Server](https://github.com/openagentprotocol-OAP/oap-spec/tree/main/reference/server): Resolver that serves a Manifest, evaluates Requests, emits Receipts.
-- [AQL Reference](https://github.com/openagentprotocol-OAP/oap-spec/tree/main/reference/aql): Parser, evaluator, projection engine, CLI, 20 unit tests. Browser playground at openagentprotocol.org/aql.
+- [AQL Reference](https://github.com/openagentprotocol-OAP/oap-spec/tree/main/reference/aql): Parser, evaluator, projection engine, CLI, 20 unit tests. Browser playground at openagentprotocol.eu/aql.
 - [Schema Validator](https://github.com/openagentprotocol-OAP/oap-spec/tree/main/reference/validator): AJV based validator covering all 23 schemas.
 - [MCP Adapter](https://github.com/openagentprotocol-OAP/oap-spec/tree/main/adapters/mcp): Model Context Protocol bridge.
 - [A2A Adapter](https://github.com/openagentprotocol-OAP/oap-spec/tree/main/adapters/a2a): Agent2Agent bridge.
@@ -68,7 +68,7 @@ The current document is the Version 1.0 Public Working Draft, identifier OAP-COR
 
 ## Governance
 
-- [Charter](https://openagentprotocol.org/governance): Mission, scope, and the fifteen percent voting cap.
+- [Charter](https://openagentprotocol.eu/governance): Mission, scope, and the fifteen percent voting cap.
 - [RFC Process](https://github.com/openagentprotocol-OAP/oap-spec/blob/main/governance/RFC-PROCESS.md): How proposals become normative text.
 - [Working Groups](https://github.com/openagentprotocol-OAP/oap-spec/blob/main/governance/WORKING-GROUPS.md): The standing groups and their charters.
 - [Maintainers](https://github.com/openagentprotocol-OAP/oap-spec/blob/main/MAINTAINERS.md): Current maintainer roster.
@@ -84,12 +84,12 @@ The current document is the Version 1.0 Public Working Draft, identifier OAP-COR
 ## Citation
 
 - [Machine readable citation](https://github.com/openagentprotocol-OAP/oap-spec/blob/main/CITATION.cff): CITATION.cff in the specification repository.
-- Recommended human readable form: Open Agent Protocol Working Groups. Open Agent Protocol, Version 1.0 Public Working Draft. OAP-CORE-1.0. 2026. https://openagentprotocol.org
+- Recommended human readable form: Open Agent Protocol Working Groups. Open Agent Protocol, Version 1.0 Public Working Draft. OAP-CORE-1.0. 2026. https://openagentprotocol.eu
 
 ## Optional
 
 - [License: Apache 2.0 for code](https://github.com/openagentprotocol-OAP/oap-spec/blob/main/LICENSE-CODE)
 - [License: Creative Commons Attribution 4.0 for spec](https://github.com/openagentprotocol-OAP/oap-spec/blob/main/LICENSE-SPEC)
-- [Trademark policy](https://openagentprotocol.org/trademark)
-- [Implementations directory](https://openagentprotocol.org/implementations)
-- [SDK directory](https://openagentprotocol.org/sdks)
+- [Trademark policy](https://openagentprotocol.eu/trademark)
+- [Implementations directory](https://openagentprotocol.eu/implementations)
+- [SDK directory](https://openagentprotocol.eu/sdks)

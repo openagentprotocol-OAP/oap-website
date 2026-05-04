@@ -24,7 +24,7 @@ export default function CommunityPage() {
           icon="✉️"
           title="Mailing list"
           desc="Long form proposals, announcements, and meeting notes. Low traffic."
-          link="mailto:announce-subscribe@openagentprotocol.org"
+          link="mailto:announce-subscribe@openagentprotocol.eu"
           cta="Subscribe"
         />
         <Card
@@ -47,7 +47,7 @@ export default function CommunityPage() {
         <div className="text-sm font-semibold text-white mb-2">Reporting a security issue</div>
         <p className="text-sm text-white/60 leading-relaxed mb-3">
           Please do not file public issues for security vulnerabilities. Email
-          <a href="mailto:security@openagentprotocol.org" className="underline underline-offset-4 text-indigo-300 mx-1">security@openagentprotocol.org</a>
+          <a href="mailto:security@openagentprotocol.eu" className="underline underline-offset-4 text-indigo-300 mx-1">security@openagentprotocol.eu</a>
           with details. PGP key fingerprint is published in <code className="font-mono text-xs">oap-spec/SECURITY.md</code>. Acknowledgement within 72 hours.
         </p>
       </div>

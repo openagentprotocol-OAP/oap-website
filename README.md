@@ -2,7 +2,7 @@
 
 The official website and developer portal for the Open Agent Protocol.
 
-Production URL: `https://openagentprotocol.org`
+Production URL: `https://openagentprotocol.eu`
 Repository: `github.com/openagentprotocol-OAP/oap-website`
 
 ## Stack
@@ -60,7 +60,7 @@ Recommended:
 - **Porkbun** with WHOIS Privacy enabled by default. Less anonymous than Njalla but cheaper and reputable.
 
 Domain candidates (in order of preference):
-- `openagentprotocol.org` (primary, signals open standard)
+- `openagentprotocol.eu` (primary, signals open standard)
 - `openagentprotocol.dev`
 - `oap.foundation`
 
@@ -72,22 +72,22 @@ Set up a catch all forwarding inbox at the registered domain via:
 - **Migadu** (cheapest for many aliases)
 
 Required addresses:
-- `foundation@openagentprotocol.org`
-- `security@openagentprotocol.org`
-- `conduct@openagentprotocol.org`
-- `trademark@openagentprotocol.org`
-- `announce@openagentprotocol.org`
+- `foundation@openagentprotocol.eu`
+- `security@openagentprotocol.eu`
+- `conduct@openagentprotocol.eu`
+- `trademark@openagentprotocol.eu`
+- `announce@openagentprotocol.eu`
 
 ### 3. GitHub organization
 
 `openagentprotocol-OAP` already exists. Configure:
 - Org name: "OAP Foundation"
-- Org email: `foundation@openagentprotocol.org`
-- Org website: `https://openagentprotocol.org`
-- All commits authored as `openagentprotocol <oap@openagentprotocol.org>`. Set this globally in any clone:
+- Org email: `foundation@openagentprotocol.eu`
+- Org website: `https://openagentprotocol.eu`
+- All commits authored as `openagentprotocol <oap@openagentprotocol.eu>`. Set this globally in any clone:
   ```bash
   git config user.name "openagentprotocol"
-  git config user.email "oap@openagentprotocol.org"
+  git config user.email "oap@openagentprotocol.eu"
   ```
 - Disable GitHub Pages contributor avatars on org pages.
 

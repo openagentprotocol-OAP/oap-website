@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" role="img" aria-label="Open Agent Protocol social preview">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A0A0B"/>
+      <stop offset="100%" stop-color="#1E1B4B"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A5B4FC"/>
+      <stop offset="50%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#A855F7"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#312E81" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0A0A0B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <circle cx="320" cy="320" r="380" fill="url(#glow)"/>
+
+  <!-- mark, left side, scaled to ~360x360 -->
+  <g transform="translate(140, 140) scale(1.41)">
+    <circle cx="128" cy="128" r="124" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.75"/>
+    <circle cx="128" cy="128" r="116" fill="none" stroke="url(#accent)" stroke-width="0.6" opacity="0.4"/>
+    <circle cx="128" cy="128" r="56" fill="none" stroke="url(#accent)" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="128" cy="128" r="34" fill="none" stroke="url(#accent)" stroke-width="1.5" stroke-dasharray="2 5" opacity="0.7"/>
+    <g fill="url(#accent)">
+      <circle cx="128" cy="72" r="6"/>
+      <circle cx="176.5" cy="156" r="6"/>
+      <circle cx="79.5" cy="156" r="6"/>
+    </g>
+    <g stroke="url(#accent)" stroke-width="0.8" opacity="0.5">
+      <line x1="128" y1="72" x2="176.5" y2="156"/>
+      <line x1="176.5" y1="156" x2="79.5" y2="156"/>
+      <line x1="79.5" y1="156" x2="128" y2="72"/>
+    </g>
+  </g>
+
+  <!-- text block, right side -->
+  <g font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" fill="#FFFFFF">
+    <text x="540" y="220" font-size="58" font-weight="700" letter-spacing="-1.5">Open Agent</text>
+    <text x="540" y="288" font-size="58" font-weight="700" letter-spacing="-1.5">Protocol</text>
+
+    <text x="540" y="350" font-size="20" font-weight="500" fill="#A5B4FC" letter-spacing="3">VERSION 1.0 PUBLIC WORKING DRAFT</text>
+
+    <text x="540" y="410" font-size="22" font-weight="400" fill="#D4D4D8">The vendor neutral standard for how</text>
+    <text x="540" y="442" font-size="22" font-weight="400" fill="#D4D4D8">autonomous agents discover, invoke, pay for,</text>
+    <text x="540" y="474" font-size="22" font-weight="400" fill="#D4D4D8">govern, and audit the tools they use.</text>
+
+    <text x="540" y="558" font-size="18" font-weight="600" fill="#FFFFFF">openagentprotocol.eu</text>
+    <text x="540" y="586" font-size="15" font-weight="400" fill="#9CA3AF">24 RFCs · 10 papers · 23 schemas · Apache 2.0 + CC BY 4.0</text>
+  </g>
+</svg>

@@ -35,7 +35,7 @@ export async function Footer() {
           <ul className="space-y-1.5 text-white/55">
             <li><Link href="/license" className="hover:text-white">License</Link></li>
             <li><Link href="/trademark" className="hover:text-white">Trademark</Link></li>
-            <li><a href="mailto:contact@openagentprotocol.org" className="hover:text-white">Contact</a></li>
+            <li><a href="mailto:contact@openagentprotocol.eu" className="hover:text-white">Contact</a></li>
           </ul>
         </div>
       </div>

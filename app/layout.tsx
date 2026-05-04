@@ -3,7 +3,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
 export const metadata = {
-  metadataBase: new URL('https://openagentprotocol.org'),
+  metadataBase: new URL('https://openagentprotocol.eu'),
   title: {
     default: 'Open Agent Protocol',
     template: '%s · Open Agent Protocol',
