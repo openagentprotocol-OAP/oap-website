@@ -5,17 +5,17 @@ export const metadata = {
 };
 
 const levels = [
-  { code: 'L0', name: 'Compatible', desc: 'Implements MCP or A2A and publishes a minimal OAP Manifest mapping. Self-attested.' },
-  { code: 'L1', name: 'Discoverable', desc: 'Full Manifest, categories, examples, machine-validated by the OAP test suite. Self-signed Conformance Receipt.' },
-  { code: 'L2', name: 'Billable', desc: 'L1 plus Pricing, Auth, Subscription, Wallet, refund endpoint. Self-signed.' },
-  { code: 'L3', name: 'Trusted', desc: 'L2 plus Audit Log, Data Policy, CCC, Verified Publisher, Multi-Party Review for high-risk Actions. DNS or DID-based publisher verification.' },
-  { code: 'L4', name: 'Collaborative', desc: 'L3 plus Multi-Agent Coordination, Conflict Resolution, Change Broadcast, Coordination Sessions. Requires at least one independent peer-witness signature, anchored in the OAP Registry.' },
-  { code: 'L5', name: 'Peer-Certified', desc: 'L4 plus an independent third-party security audit (SOC 2 Type II, ISO 27001, or equivalent). Requires at least three independent peer-witness signatures from L4+ implementations, anchored in the OAP Registry.' },
+  { code: 'L0',    name: 'Compatible',     probe: 'machine-verifiable', desc: 'Implements MCP or A2A and publishes a minimal OAP Manifest mapping. Self-attested.' },
+  { code: 'L1',    name: 'Discoverable',   probe: 'machine-verifiable', desc: 'Full Manifest, categories, examples, machine-validated by the OAP test suite. Self-signed Conformance Receipt.' },
+  { code: 'L2',    name: 'Billable',       probe: 'probes in progress', desc: 'L1 plus Pricing, Auth, Subscription, Wallet, refund endpoint. Self-signed.' },
+  { code: 'L3',    name: 'Trusted',        probe: 'probes in progress', desc: 'L2 plus Audit Log, Data Policy, CCC, Verified Publisher, Multi-Party Review for high-risk Actions. DNS or DID-based publisher verification.' },
+  { code: 'L4',    name: 'Collaborative',  probe: 'probes in progress', desc: 'L3 plus Multi-Agent Coordination, Conflict Resolution, Change Broadcast, Coordination Sessions. Requires at least one independent peer-witness signature, anchored in the OAP Registry.' },
+  { code: 'L5',    name: 'Peer-Certified', probe: 'probes in progress', desc: 'L4 plus an independent third-party security audit (SOC 2 Type II, ISO 27001, or equivalent). Requires at least three independent peer-witness signatures from L4+ implementations, anchored in the OAP Registry.' },
 ];
 
 const profiles = [
-  { code: 'L1-NC', name: 'L1 Non-Commercial', desc: 'L1 with Wallet, Subscription, and refund waived. For BYOK platforms, self-hosted deployments, and grant- or donation-funded services.' },
-  { code: 'L3-NC', name: 'L3 Non-Commercial', desc: 'L3 with the Commerce Plane requirements waived. Trust requirements (Audit Log, Data Policy, CCC, Verified Publisher) still apply in full.' },
+  { code: 'L1-NC', name: 'L1 Non-Commercial', probe: 'machine-verifiable', desc: 'L1 with Wallet, Subscription, and refund waived. For BYOK platforms, self-hosted deployments, and grant- or donation-funded services.' },
+  { code: 'L3-NC', name: 'L3 Non-Commercial', probe: 'probes in progress', desc: 'L3 with the Commerce Plane requirements waived. Trust requirements (Audit Log, Data Policy, CCC, Verified Publisher) still apply in full.' },
 ];
 
 export default function ConformancePage() {
@@ -32,9 +32,10 @@ export default function ConformancePage() {
       <div className="space-y-3 mb-12">
         {levels.map((l) => (
           <div key={l.code} className="p-5 rounded-xl border border-white/8 bg-white/[0.02]">
-            <div className="flex items-baseline gap-3 mb-2">
+            <div className="flex items-baseline gap-3 mb-2 flex-wrap">
               <div className="text-sm font-mono text-indigo-300">{l.code}</div>
               <div className="text-base font-semibold text-white">{l.name}</div>
+              <ProbeBadge state={l.probe} />
             </div>
             <div className="text-sm text-white/60 leading-relaxed">{l.desc}</div>
           </div>
@@ -48,13 +49,18 @@ export default function ConformancePage() {
       <div className="space-y-3 mb-12">
         {profiles.map((l) => (
           <div key={l.code} className="p-5 rounded-xl border border-white/8 bg-white/[0.02]">
-            <div className="flex items-baseline gap-3 mb-2">
+            <div className="flex items-baseline gap-3 mb-2 flex-wrap">
               <div className="text-sm font-mono text-indigo-300">{l.code}</div>
               <div className="text-base font-semibold text-white">{l.name}</div>
+              <ProbeBadge state={l.probe} />
             </div>
             <div className="text-sm text-white/60 leading-relaxed">{l.desc}</div>
           </div>
         ))}
+      </div>
+
+      <div className="p-4 rounded-lg border border-amber-400/20 bg-amber-500/[0.04] mb-12 text-[13px] leading-relaxed text-amber-100/80">
+        <strong className="text-amber-200">Probe coverage status.</strong> L0, L1, and L1-NC have complete machine-verifiable probes in <code className="font-mono text-xs">test-suite/</code> today and pass 44 out of 44 against the reference server. Probes for L2 commerce, L3 trust controls, L3-NC, L4 coordination, and L5 peer-witness independence are specified in <a className="underline underline-offset-4 text-amber-200" href="/rfcs/0019">RFC 0019</a> and <a className="underline underline-offset-4 text-amber-200" href="https://github.com/openagentprotocol-OAP/oap-spec/blob/main/test-suite/levels/levels.json" target="_blank" rel="noopener noreferrer">levels.json</a> but the test fixtures are still being written. Implementations may submit Receipts that claim higher levels today; Registry CI will accept them once peer-witness signatures are present, but the suite will not yet machine-validate the underlying claims.
       </div>
 
       <h2 className="text-xl font-bold text-white mb-3 tracking-tight">How to claim a level</h2>
@@ -63,13 +69,25 @@ export default function ConformancePage() {
         <li>Run <code className="font-mono text-xs">node test-suite/attest.js --target ... --signing-key ...</code> to produce a signed Conformance Receipt.</li>
         <li>Publish the Receipt at a stable URL and reference it from your Manifest's <code className="font-mono text-xs">conformance.receipt_uri</code>.</li>
         <li>For L4 and L5: send your Receipt to peer witnesses (other L4+ implementations) and ask each to run <code className="font-mono text-xs">attest.js --peer-witness</code>.</li>
-        <li>Submit a Pull Request to <code className="font-mono text-xs">openagentprotocol-OAP/oap-registry</code> with your <code className="font-mono text-xs">implementations/&lt;slug&gt;.json</code>.</li>
+        <li>Submit a Pull Request to <a className="underline underline-offset-4 text-indigo-300" href="https://github.com/openagentprotocol-OAP/oap-registry" target="_blank" rel="noopener noreferrer"><code className="font-mono text-xs">openagentprotocol-OAP/oap-registry</code></a> with your <code className="font-mono text-xs">implementations/&lt;slug&gt;.json</code>. Browse current entries in the <a className="underline underline-offset-4 text-indigo-300" href="/registry">OAP Registry</a>.</li>
         <li>The Registry CI gate validates schema, signatures, manifest reachability, peer witnesses, and the 30-day domain-age sybil filter. If everything passes, a Maintainer merges. The merge commit is your anchor.</li>
       </ol>
 
       <p className="text-white/55 text-sm mt-10">
-        Conformance Receipts are valid for 90 days and MUST be re-issued before expiry. The full procedure is normative in <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/RFC-0019-conformance-testing-and-implementability">RFC 0019</a> and <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/RFC-0026-registry-protocol">RFC 0026</a>. The Non-Commercial Profile is defined in <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/RFC-0025-non-commercial-conformance-profile">RFC 0025</a>.
+        Conformance Receipts are valid for 90 days and MUST be re-issued before expiry. The full procedure is normative in <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/0019">RFC 0019</a> and <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/0026">RFC 0026</a>. The Non-Commercial Profile is defined in <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/0025">RFC 0025</a>.
       </p>
     </div>
+  );
+}
+
+function ProbeBadge({ state }: { state: string }) {
+  const machineVerifiable = state === 'machine-verifiable';
+  const cls = machineVerifiable
+    ? 'text-emerald-300 bg-emerald-500/10 border-emerald-500/20'
+    : 'text-amber-200 bg-amber-500/10 border-amber-500/20';
+  return (
+    <span className={`text-[10px] uppercase tracking-[0.14em] font-semibold px-2 py-0.5 rounded border ${cls}`}>
+      {state}
+    </span>
   );
 }
