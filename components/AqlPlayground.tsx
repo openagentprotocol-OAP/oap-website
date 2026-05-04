@@ -1,9 +1,11 @@
 'use client';
 
 // Browser port of the AQL evaluator + projection. Mirrors
-// reference/aql/src/{evaluator,projection}.js without the ajv schema check,
-// which is intentional: this playground is a learning surface, not a
-// conformance gate. The full reference implementation lives at
+// reference/aql/src/{evaluator,projection}.js without the ajv schema check
+// and without cryptographic signing, which is intentional: this playground
+// is a learning surface, not a conformance gate. The Decision Record signature
+// in the output is a placeholder string, not a verifiable Ed25519 value.
+// The full reference implementation lives at
 // https://github.com/openagentprotocol-OAP/oap-spec/tree/main/reference/aql
 
 import { useMemo, useState } from 'react';
@@ -322,7 +324,7 @@ function resolveIntent(intent: any, candidates: any[]) {
     evaluated_at: new Date().toISOString(),
     candidates: accepted,
     rejected,
-    signature: { alg: 'EdDSA', value: 'playground-unsigned' },
+    signature: { alg: 'EdDSA', value: 'playground-placeholder' },
   };
 }
 

@@ -29,18 +29,29 @@ export default function AqlPage() {
       <Section title="Try it">
         <p className="mb-6 text-white/60">
           The playground runs the reference evaluator and projection in your browser. No
-          server roundtrip, no signature, no policy stack. For the full reference
-          implementation see <a href="https://github.com/openagentprotocol-OAP/oap-spec/tree/main/reference/aql" className="underline underline-offset-4 text-indigo-300" target="_blank" rel="noreferrer">reference/aql</a> in the spec repository.
+          server roundtrip and no policy stack. The Decision Record signature shown in the
+          output is a placeholder string and is not a verifiable Ed25519 value. For the full
+          reference implementation with real signing, see <a href="https://github.com/openagentprotocol-OAP/oap-spec/tree/main/reference/aql" className="underline underline-offset-4 text-indigo-300" target="_blank" rel="noreferrer">reference/aql</a> in the spec repository.
         </p>
         <AqlPlayground />
       </Section>
 
       <Section title="Intent shape">
         <p>
-          An Intent is a JSON document conforming to <a href="https://github.com/openagentprotocol-OAP/oap-spec/blob/main/schemas/v1.0/oap-intent.schema.json" className="underline underline-offset-4 text-indigo-300" target="_blank" rel="noreferrer">oap-intent.schema.json</a>. The required blocks are listed below. The full normative description lives in <Link href="/rfcs/0020" className="underline underline-offset-4 text-indigo-300">RFC 0020</Link>.
+          An Intent is a JSON document conforming to <a href="https://github.com/openagentprotocol-OAP/oap-spec/blob/main/schemas/v1.0/oap-intent.schema.json" className="underline underline-offset-4 text-indigo-300" target="_blank" rel="noreferrer">oap-intent.schema.json</a>. The required and optional blocks are listed below. The full normative description lives in <Link href="/rfcs/0020" className="underline underline-offset-4 text-indigo-300">RFC 0020</Link>.
         </p>
-        <ul className="mt-4 grid sm:grid-cols-2 gap-2">
-          {intentFields.map((f) => (
+        <h3 className="mt-6 mb-2 text-sm font-semibold uppercase tracking-[0.14em] text-white/55">Required</h3>
+        <ul className="grid sm:grid-cols-2 gap-2">
+          {requiredIntentFields.map((f) => (
+            <li key={f.name} className="p-4 rounded-lg border border-white/8 bg-white/[0.02]">
+              <div className="font-mono text-[13px] text-indigo-300 mb-1">{f.name}</div>
+              <div className="text-sm text-white/60">{f.desc}</div>
+            </li>
+          ))}
+        </ul>
+        <h3 className="mt-6 mb-2 text-sm font-semibold uppercase tracking-[0.14em] text-white/55">Optional, with defaults</h3>
+        <ul className="grid sm:grid-cols-2 gap-2">
+          {optionalIntentFields.map((f) => (
             <li key={f.name} className="p-4 rounded-lg border border-white/8 bg-white/[0.02]">
               <div className="font-mono text-[13px] text-indigo-300 mb-1">{f.name}</div>
               <div className="text-sm text-white/60">{f.desc}</div>
@@ -124,17 +135,20 @@ function FactCard({ title, body }: { title: string; body: string }) {
   );
 }
 
-const intentFields = [
+const requiredIntentFields = [
   { name: 'intent_id', desc: 'URN minted by the issuer.' },
   { name: 'issuer_did', desc: 'Decentralized identifier of the signing Principal.' },
   { name: 'category', desc: 'commercial, knowledge, action, delegation, discovery, subscription.' },
   { name: 'constraints', desc: 'Constraint tree built from leaves and the boolean combinators all_of, any_of, not.' },
   { name: 'projection', desc: 'Include and exclude pointer sets that bound what data crosses the boundary.' },
-  { name: 'budget', desc: 'Cost ceiling, currency, and allocation policy across candidates.' },
-  { name: 'quality_floor', desc: 'Minimum acceptable performance, conformance, latency, reputation.' },
   { name: 'validity', desc: 'Window during which the Intent is open for response.' },
-  { name: 'resolution_policy', desc: 'single_best, ranked_set, or full_set.' },
   { name: 'signature', desc: 'EdDSA, ES256, or ES384 signature over the canonicalized body.' },
+];
+
+const optionalIntentFields = [
+  { name: 'budget', desc: 'Cost ceiling, currency, and allocation policy across candidates. Omit for non commercial Intents.' },
+  { name: 'quality_floor', desc: 'Minimum acceptable performance, conformance, latency, reputation. Omit when any Resolver is acceptable.' },
+  { name: 'resolution_policy', desc: 'single_best, ranked_set, or full_set. Defaults to ranked_set when omitted.' },
 ];
 
 const operators = [
