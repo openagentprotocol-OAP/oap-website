@@ -13,9 +13,11 @@ export default async function SpecPage() {
         <h1 className="text-4xl font-bold tracking-tight mb-3">OAP-CORE-1.0</h1>
         <p className="text-white/60 leading-relaxed">
           The normative core specification of the Open Agent Protocol. Defines the seven planes,
-          six core conformance levels (L0 through L5), plus domain specific profiles for the Agent Native Web
-          (W1 through W3) and Commerce (C1 through C3). Covers the manifest format, the invocation
-          envelope, the receipt schema, and the full set of normative JSON Schemas.
+          six core conformance levels (L0 through L5), and a Non-Commercial Profile (L1-NC and L3-NC)
+          for implementations that do not collect revenue from their users. The Agent Native Web
+          Origin levels (W1 through W3) are defined as a domain specific profile in RFC 0012.
+          Covers the manifest format, the invocation envelope, the receipt schema, and the full set
+          of normative JSON Schemas.
         </p>
         <div className="flex gap-3 mt-5">
           <a
