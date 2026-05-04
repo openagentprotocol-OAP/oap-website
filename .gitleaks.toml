@@ -1,0 +1,16 @@
+# Gitleaks configuration for oap-website.
+# The OAP-CORE-1.0.md spec content is synced from oap-spec and contains
+# illustrative example tokens that look like secrets.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Spec example tokens in synced OAP-CORE-1.0.md"
+paths = [
+  '''content/spec/OAP-CORE-1\.0\.md''',
+  '''content/rfcs/.*\.md''',
+]
+regexes = [
+  '''oap_sub_(live|test)_[A-Za-z0-9]+''',
+  '''01J[0-9A-HJKMNP-TV-Z]{23}''',
+]
