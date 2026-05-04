@@ -1,128 +1,75 @@
-export const metadata = { title: 'Conformance Levels' };
+export const metadata = {
+  title: 'Conformance levels',
+  description:
+    'OAP defines six Conformance Levels (L0 through L5) plus Non-Commercial Profile suffixes (-NC) for BYOK and self-hosted implementations.',
+};
 
-const coreLevels = [
-  { code: 'L0', name: 'Compatible', desc: 'Reads and parses OAP manifests. May invoke actions but does not publish one. Suitable for clients and crawlers.' },
-  { code: 'L1', name: 'Identifiable', desc: 'Publishes a signed manifest with a verifiable DID. Static identity only, no live invocation endpoint.' },
-  { code: 'L2', name: 'Discoverable', desc: 'L1 plus live discover and invoke endpoints. Returns receipts. Honors GDPR data export. Default for production tools.' },
-  { code: 'L3', name: 'Auditable', desc: 'L2 plus tamper evident hash chained receipts, public audit endpoint, incident reporting endpoint.' },
-  { code: 'L4', name: 'Collaborative', desc: 'L3 plus support for the optional collaboration RFCs (sessions, negotiation, delegation, projections). Requires RFC 0016 User Sovereignty Charter compliance.' },
-  { code: 'L5', name: 'Certified', desc: 'L4 plus passing the official Conformance Test Suite operated by the Stewards. Renewed annually.' },
+const levels = [
+  { code: 'L0', name: 'Compatible', desc: 'Implements MCP or A2A and publishes a minimal OAP Manifest mapping. Self-attested.' },
+  { code: 'L1', name: 'Discoverable', desc: 'Full Manifest, categories, examples, machine-validated by the OAP test suite. Self-signed Conformance Receipt.' },
+  { code: 'L2', name: 'Billable', desc: 'L1 plus Pricing, Auth, Subscription, Wallet, refund endpoint. Self-signed.' },
+  { code: 'L3', name: 'Trusted', desc: 'L2 plus Audit Log, Data Policy, CCC, Verified Publisher, Multi-Party Review for high-risk Actions. DNS or DID-based publisher verification.' },
+  { code: 'L4', name: 'Collaborative', desc: 'L3 plus Multi-Agent Coordination, Conflict Resolution, Change Broadcast, Coordination Sessions. Requires at least one independent peer-witness signature, anchored in the OAP Registry.' },
+  { code: 'L5', name: 'Peer-Certified', desc: 'L4 plus an independent third-party security audit (SOC 2 Type II, ISO 27001, or equivalent). Requires at least three independent peer-witness signatures from L4+ implementations, anchored in the OAP Registry.' },
 ];
 
-const webLevels = [
-  { code: 'W1', name: 'Manifest', desc: 'Origin publishes a minimal manifest at /.well-known/oap/manifest.json with identity, actions, and schemas. Agents can discover the origin without scraping.' },
-  { code: 'W2', name: 'Surfaces', desc: 'W1 plus at least one Knowledge Node per data class declared in the manifest. Human surface and agent surface coexist at the same origin.' },
-  { code: 'W3', name: 'Federated', desc: 'W2 plus DID bound to a Verifiable Credential, participation in a public registry, and Asset Descriptors for all modality assets.' },
-];
-
-const commerceLevels = [
-  { code: 'C1', name: 'Priced', desc: 'Provider publishes machine readable cost information on every action. Commerce model declared in the manifest.' },
-  { code: 'C2', name: 'Comparable', desc: 'C1 plus cost disclosure (Build versus Buy Decision Protocol). Consumers can compare token equivalent cost, latency, and quality evidence across providers.' },
-  { code: 'C3', name: 'Auditable', desc: 'C2 plus Settlement Statements anchored in a Reconciliation Log. Full consumption proof chain for every billable unit.' },
+const profiles = [
+  { code: 'L1-NC', name: 'L1 Non-Commercial', desc: 'L1 with Wallet, Subscription, and refund waived. For BYOK platforms, self-hosted deployments, and grant- or donation-funded services.' },
+  { code: 'L3-NC', name: 'L3 Non-Commercial', desc: 'L3 with the Commerce Plane requirements waived. Trust requirements (Audit Log, Data Policy, CCC, Verified Publisher) still apply in full.' },
 ];
 
 export default function ConformancePage() {
   return (
-    <div className="max-w-5xl mx-auto px-6 py-16">
-      <div className="mb-12">
+    <div className="max-w-4xl mx-auto px-6 py-16">
+      <div className="mb-10">
         <div className="text-xs font-semibold tracking-[0.18em] text-indigo-300/80 mb-3 uppercase">Conformance</div>
-        <h1 className="text-4xl font-bold tracking-tight mb-3">Progressive levels, domain profiles.</h1>
-        <p className="text-white/60 leading-relaxed max-w-3xl">
-          OAP defines six core Conformance Levels (L0 through L5) plus domain specific profiles for the
-          Agent Native Web (W1 through W3, per RFC 0012) and the Commercial Layer (C1 through C3, per
-          RFC 0013). Each higher level adds testable obligations without removing capabilities from lower
-          levels. Implementations declare their levels in the manifest, and the Stewards publish an
-          open Conformance Test Suite to verify them.
+        <h1 className="text-4xl font-bold tracking-tight mb-3">Six levels. Mechanically verified. No certification authority.</h1>
+        <p className="text-white/60 leading-relaxed">
+          OAP defines six Conformance Levels (L0 through L5). Implementations declare their Level through a signed Conformance Receipt produced by the open-source test suite. There is no certification authority and no fee. L4 and L5 require independent peer-witness signatures from already-conformant implementations and an anchor in the OAP Registry, an append-only Git repository (RFC 0026).
         </p>
       </div>
 
-      <h2 className="text-xl font-bold text-white mb-4 tracking-tight">Core Levels</h2>
       <div className="space-y-3 mb-12">
-        {coreLevels.map((l) => (
-          <div key={l.code} className="grid grid-cols-[80px_1fr] gap-6 p-6 rounded-xl border border-white/8 bg-white/[0.02]">
-            <div>
-              <div className="text-3xl font-bold text-white">{l.code}</div>
-              <div className="text-xs uppercase tracking-wider text-indigo-300/80 mt-1">{l.name}</div>
+        {levels.map((l) => (
+          <div key={l.code} className="p-5 rounded-xl border border-white/8 bg-white/[0.02]">
+            <div className="flex items-baseline gap-3 mb-2">
+              <div className="text-sm font-mono text-indigo-300">{l.code}</div>
+              <div className="text-base font-semibold text-white">{l.name}</div>
             </div>
-            <div className="text-sm text-white/65 leading-relaxed self-center">{l.desc}</div>
+            <div className="text-sm text-white/60 leading-relaxed">{l.desc}</div>
           </div>
         ))}
       </div>
 
-      <h2 className="text-xl font-bold text-white mb-4 tracking-tight">Web Integration Profile (RFC 0012)</h2>
+      <h2 className="text-xl font-bold text-white mb-3 tracking-tight">Non-Commercial Profile (RFC 0025)</h2>
+      <p className="text-white/60 leading-relaxed mb-4">
+        Implementations that do not collect revenue from their users (BYOK platforms, self-hosted deployments, grant-funded services) MAY claim a Non-Commercial Profile. The <code className="font-mono text-xs">-NC</code> suffix waives the Commerce Plane requirements but preserves every other requirement of the base level.
+      </p>
       <div className="space-y-3 mb-12">
-        {webLevels.map((l) => (
-          <div key={l.code} className="grid grid-cols-[80px_1fr] gap-6 p-6 rounded-xl border border-white/8 bg-white/[0.02]">
-            <div>
-              <div className="text-3xl font-bold text-white">{l.code}</div>
-              <div className="text-xs uppercase tracking-wider text-emerald-300/80 mt-1">{l.name}</div>
+        {profiles.map((l) => (
+          <div key={l.code} className="p-5 rounded-xl border border-white/8 bg-white/[0.02]">
+            <div className="flex items-baseline gap-3 mb-2">
+              <div className="text-sm font-mono text-indigo-300">{l.code}</div>
+              <div className="text-base font-semibold text-white">{l.name}</div>
             </div>
-            <div className="text-sm text-white/65 leading-relaxed self-center">{l.desc}</div>
+            <div className="text-sm text-white/60 leading-relaxed">{l.desc}</div>
           </div>
         ))}
       </div>
 
-      <h2 className="text-xl font-bold text-white mb-4 tracking-tight">Commercial Layer Profile (RFC 0013)</h2>
-      <div className="space-y-3 mb-12">
-        {commerceLevels.map((l) => (
-          <div key={l.code} className="grid grid-cols-[80px_1fr] gap-6 p-6 rounded-xl border border-white/8 bg-white/[0.02]">
-            <div>
-              <div className="text-3xl font-bold text-white">{l.code}</div>
-              <div className="text-xs uppercase tracking-wider text-amber-300/80 mt-1">{l.name}</div>
-            </div>
-            <div className="text-sm text-white/65 leading-relaxed self-center">{l.desc}</div>
-          </div>
-        ))}
-      </div>
+      <h2 className="text-xl font-bold text-white mb-3 tracking-tight">How to claim a level</h2>
+      <ol className="list-decimal pl-5 space-y-2 text-white/65 text-[15px] leading-relaxed">
+        <li>Run <code className="font-mono text-xs">node test-suite/runner.js</code> against your deployment.</li>
+        <li>Run <code className="font-mono text-xs">node test-suite/attest.js --target ... --signing-key ...</code> to produce a signed Conformance Receipt.</li>
+        <li>Publish the Receipt at a stable URL and reference it from your Manifest's <code className="font-mono text-xs">conformance.receipt_uri</code>.</li>
+        <li>For L4 and L5: send your Receipt to peer witnesses (other L4+ implementations) and ask each to run <code className="font-mono text-xs">attest.js --peer-witness</code>.</li>
+        <li>Submit a Pull Request to <code className="font-mono text-xs">openagentprotocol-OAP/oap-registry</code> with your <code className="font-mono text-xs">implementations/&lt;slug&gt;.json</code>.</li>
+        <li>The Registry CI gate validates schema, signatures, manifest reachability, peer witnesses, and the 30-day domain-age sybil filter. If everything passes, a Maintainer merges. The merge commit is your anchor.</li>
+      </ol>
 
-      <div className="rounded-xl border border-white/8 bg-white/[0.02] p-6 mb-6">
-        <div className="text-sm font-semibold text-white mb-3">Conformance Test Suite</div>
-        <p className="text-sm text-white/60 leading-relaxed mb-4">
-          The official Conformance Test Suite lives in the spec repository under <code className="text-white/80">test-suite/</code>.
-          It is composed of four sub suites: schema validation against all 19 normative JSON Schemas,
-          behavior tests against a live target server, conformance level coverage maps, and Charter
-          conformance tests that verify the user sovereignty mandates of RFC 0016 are honored at
-          runtime. Run <code className="text-white/80">npm test</code> against your manifest URL to
-          certify your implementation, then run <code className="text-white/80">npm run attest</code>
-          to produce a signed Conformance Receipt that other Agents can verify autonomously.
-        </p>
-        <a
-          href="https://github.com/openagentprotocol-OAP/oap-spec/tree/main/test-suite"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm text-indigo-300 hover:text-indigo-200 underline underline-offset-4"
-        >
-          oap-spec / test-suite →
-        </a>
-      </div>
-
-      <div className="rounded-xl border border-white/8 bg-white/[0.02] p-6 mb-6">
-        <div className="text-sm font-semibold text-white mb-3">Self Verification by Agents (RFC 0019)</div>
-        <p className="text-sm text-white/60 leading-relaxed mb-4">
-          Every Manifest MAY publish a signed Conformance Receipt under <code className="text-white/80">conformance.receipt_uri</code>.
-          Any consuming Agent fetches the receipt, validates the signature against the implementation
-          DID, checks that the validity window has not elapsed, and OPTIONALLY re executes a
-          randomized sample of behavior tests against the live target. The reference implementation
-          of this verifier is published as <code className="text-white/80">reference/agent/conformance-verifier.js</code>
-          and is callable as a library function. The procedure is fully autonomous and requires no
-          third party certifier.
-        </p>
-      </div>
-
-      <div className="rounded-xl border border-white/8 bg-white/[0.02] p-6">
-        <div className="text-sm font-semibold text-white mb-3">How the Protocol Stays Implementable</div>
-        <p className="text-sm text-white/60 leading-relaxed">
-          RFC 0019 binds every future change to three governance gates enforced by Continuous
-          Integration. The <strong className="text-white/85">Implementability Gate</strong> rejects
-          any pull request that modifies a normative artifact without a corresponding test suite or
-          reference implementation update. The <strong className="text-white/85">Backward Compatibility Gate</strong>
-          rejects any silent edit to a v1.0 schema, forcing additive only changes or a clean v1.1
-          versioning. The <strong className="text-white/85">Charter Review Gate</strong> requires two
-          explicit sign offs, including one from a User Advocacy Voter, before any RFC that touches a
-          user right can enter Last Call. Together these gates make the protocol mechanically
-          unable to drift into theory and procedurally unable to silently weaken user rights.
-        </p>
-      </div>
+      <p className="text-white/55 text-sm mt-10">
+        Conformance Receipts are valid for 90 days and MUST be re-issued before expiry. The full procedure is normative in <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/RFC-0019-conformance-testing-and-implementability">RFC 0019</a> and <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/RFC-0026-registry-protocol">RFC 0026</a>. The Non-Commercial Profile is defined in <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/RFC-0025-non-commercial-conformance-profile">RFC 0025</a>.
+      </p>
     </div>
   );
 }

@@ -16,7 +16,7 @@ export default function SdksPage() {
         <p className="text-white/60 leading-relaxed max-w-3xl">
           Reference SDKs implement manifest publishing, discovery, signed invocation, receipt
           generation, and the optional protocol extensions. All SDKs are Apache 2.0 licensed and
-          maintained by the Stewards.
+          maintained by community-operated services (RFC 0019, RFC 0026).
         </p>
       </div>
 

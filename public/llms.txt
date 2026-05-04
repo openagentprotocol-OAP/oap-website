@@ -4,7 +4,7 @@
 
 The Open Agent Protocol is comparable in scope to what HTTP, OAuth, and TLS represent for the human web. It is additive to the Model Context Protocol, the Agent2Agent Protocol, OpenAI Function Calling, and LangGraph. Reference adapters for each are published in the specification repository under Apache 2.0.
 
-OAP is published under two licenses: the specification text under Creative Commons Attribution 4.0, all reference code, schemas, adapters, and tooling under the Apache License 2.0. The protocol is stewarded by the Open Agent Protocol Stewards, a neutral non profit body. No single corporate participant may hold more than fifteen percent of voting weight. Specification changes follow an open RFC process with publicly archived discussion.
+OAP is published under two licenses: the specification text under Creative Commons Attribution 4.0, all reference code, schemas, adapters, and tooling under the Apache License 2.0. The protocol is stewarded by the Open Agent Protocol community, a neutral non profit body. No single corporate participant may hold more than fifteen percent of voting weight. Specification changes follow an open RFC process with publicly archived discussion.
 
 The current document is the Version 1.0 Public Working Draft, identifier OAP-CORE-1.0, dated May 2026. Implementations are encouraged. Non breaking refinements are expected before the Final designation is granted.
 

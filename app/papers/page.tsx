@@ -8,10 +8,10 @@ export default async function PapersPage() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-16">
       <div className="mb-10">
-        <div className="text-xs font-semibold tracking-[0.18em] text-indigo-300/80 mb-3 uppercase">Stewards Publications</div>
+        <div className="text-xs font-semibold tracking-[0.18em] text-indigo-300/80 mb-3 uppercase">Community Publications</div>
         <h1 className="text-4xl font-bold tracking-tight mb-3">Whitepapers</h1>
         <p className="text-white/60 leading-relaxed max-w-2xl">
-          Long form publications of the Open Agent Protocol Stewards. Whitepapers describe the rationale and architectural commitments behind the protocol. They are normative only where they reference an accepted RFC or the core specification.
+          Long form publications of the Open Agent Protocol community. Whitepapers describe the rationale and architectural commitments behind the protocol. They are normative only where they reference an accepted RFC or the core specification.
         </p>
       </div>
       <ul className="divide-y divide-white/5 border border-white/10 rounded-lg overflow-hidden">
