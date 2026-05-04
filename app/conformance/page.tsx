@@ -1,7 +1,7 @@
 export const metadata = {
   title: 'Conformance levels',
   description:
-    'OAP defines six Conformance Levels (L0 through L5) plus Non-Commercial Profile suffixes (-NC) for BYOK and self-hosted implementations.',
+    'OAP defines six Conformance Levels (L0 through L5) plus Non-Commercial Profile suffixes (-NC) and the L5-FINANCE tier for regulated financial institutions.',
 };
 
 const levels = [
@@ -16,6 +16,7 @@ const levels = [
 const profiles = [
   { code: 'L1-NC', name: 'L1 Non-Commercial', probe: 'machine-verifiable', desc: 'L1 with Wallet, Subscription, and refund waived. For BYOK platforms, self-hosted deployments, and grant- or donation-funded services.' },
   { code: 'L3-NC', name: 'L3 Non-Commercial', probe: 'machine-verifiable', desc: 'L3 with the Commerce Plane requirements waived. Trust requirements (Audit Log, Data Policy, CCC, Verified Publisher) still apply in full.' },
+  { code: 'L5-FINANCE', name: 'L5 Regulated Finance', probe: 'machine-verifiable', desc: 'L5 plus the full RFC 0028 obligations: SR 11-7 Model Inventory, drift detection, champion-challenger promotion, symbiotic escalation with confidence thresholds (Rosenthal-Biswas-Veloso 2010), counterfactual explanations (Wachter-Mittelstadt-Russell 2017), ECOA Reg B adverse-action notices, quarterly disparate-impact audit at the four-fifths rule. At least two of the three peer witnesses MUST be registered to entities under the same regulatory regime (bank, broker-dealer, insurer, payment institution).' },
 ];
 
 export default function ConformancePage() {
@@ -42,9 +43,9 @@ export default function ConformancePage() {
         ))}
       </div>
 
-      <h2 className="text-xl font-bold text-white mb-3 tracking-tight">Non-Commercial Profile (RFC 0025)</h2>
+      <h2 className="text-xl font-bold text-white mb-3 tracking-tight">Profiles and tiers (RFC 0025, RFC 0028)</h2>
       <p className="text-white/60 leading-relaxed mb-4">
-        Implementations that do not collect revenue from their users (BYOK platforms, self-hosted deployments, grant-funded services) MAY claim a Non-Commercial Profile. The <code className="font-mono text-xs">-NC</code> suffix waives the Commerce Plane requirements but preserves every other requirement of the base level.
+        Two profile suffixes refine the base levels. <code className="font-mono text-xs">-NC</code> waives the Commerce Plane for non-commercial implementations (RFC 0025). <code className="font-mono text-xs">-FINANCE</code> bundles SR 11-7 model risk management, MiFID II, ECOA Reg B, and EU AI Act high-risk obligations on top of L5 (RFC 0028).
       </p>
       <div className="space-y-3 mb-12">
         {profiles.map((l) => (
@@ -74,7 +75,7 @@ export default function ConformancePage() {
       </ol>
 
       <p className="text-white/55 text-sm mt-10">
-        Conformance Receipts are valid for 90 days and MUST be re-issued before expiry. The full procedure is normative in <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/0019">RFC 0019</a> and <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/0026">RFC 0026</a>. The Non-Commercial Profile is defined in <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/0025">RFC 0025</a>.
+        Conformance Receipts are valid for 90 days and MUST be re-issued before expiry. The full procedure is normative in <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/0019">RFC 0019</a> and <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/0026">RFC 0026</a>. The Non-Commercial Profile is defined in <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/0025">RFC 0025</a>. The L5-FINANCE Tier is defined in <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/0028">RFC 0028</a>.
       </p>
     </div>
   );
