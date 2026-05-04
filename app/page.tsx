@@ -182,8 +182,8 @@ const pillars = [
   { code: 'PLANE 1', title: 'Identity', desc: 'Verifiable agent identity via W3C DIDs. did:web by default, did:key, did:plc, did:ion supported.' },
   { code: 'PLANE 2', title: 'Discovery', desc: 'Intent based action lookup. Manifests describe what an agent or tool does, what it costs, what it risks.' },
   { code: 'PLANE 3', title: 'Invocation', desc: 'Signed request and response envelopes with replay protection, idempotency, and capability checks.' },
-  { code: 'PLANE 4', title: 'Commercial', desc: 'Per call pricing, usage based billing, and signed agreements without a payment processor in the loop.' },
-  { code: 'PLANE 5', title: 'Governance', desc: 'Four layer policy stack: platform, organization, scope, personal. Every decision recorded.' },
+  { code: 'PLANE 4', title: 'Commercial', desc: 'Per call pricing, usage based billing, subscriptions, and portable Wallets that settle through any regulated rail without lock in.' },
+  { code: 'PLANE 5', title: 'Governance', desc: 'Four layer policy stack: platform, legal and jurisdictional, organization or profession, personal. Every decision recorded.' },
   { code: 'PLANE 6', title: 'Accountability', desc: 'Hash chained receipts. Complete, tamper evident audit trail across the entire invocation tree.' },
-  { code: 'PLANE 7', title: 'Coordination', desc: 'GDPR primitives, deletion endpoints, transparency reports, dispute resolution. Built in, not bolted on.' },
+  { code: 'PLANE 7', title: 'Coordination', desc: 'Neutral services that anchor trust, revocation, and arbitration. Open source, multi operator, no monopoly.' },
 ];
