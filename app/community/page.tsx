@@ -36,8 +36,8 @@ export default function CommunityPage() {
         />
         <Card
           icon="📅"
-          title="Working Group calls"
-          desc="Each WG meets fortnightly. Public agendas, public minutes, no recording."
+          title="Working Groups"
+          desc="GitHub Discussion categories. Anyone may participate. Synchronous calls may happen but bind no one until written on the relevant thread; meeting notes posted within 48 hours."
           link="https://github.com/openagentprotocol-OAP/oap-spec/blob/main/governance/WORKING-GROUPS.md"
           cta="See Working Groups"
         />
@@ -48,7 +48,9 @@ export default function CommunityPage() {
         <p className="text-sm text-white/60 leading-relaxed mb-3">
           Please do not file public issues for security vulnerabilities. Email
           <a href="mailto:security@openagentprotocol.eu" className="underline underline-offset-4 text-indigo-300 mx-1">security@openagentprotocol.eu</a>
-          with details. PGP key fingerprint is published in <code className="font-mono text-xs">oap-spec/SECURITY.md</code>. Acknowledgement within 72 hours.
+          with details, or file a private GitHub Security Advisory at
+          <a href="https://github.com/openagentprotocol-OAP/oap-spec/security/advisories/new" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 text-indigo-300 mx-1">oap-spec/security/advisories</a>.
+          Acknowledgement within 72 hours, coordinated disclosure typically within 90 days. Full policy in <code className="font-mono text-xs">oap-spec/SECURITY.md</code>.
         </p>
       </div>
     </div>
