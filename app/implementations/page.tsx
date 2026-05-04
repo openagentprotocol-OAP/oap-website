@@ -3,9 +3,9 @@ export const metadata = { title: 'Implementations' };
 const implementations = [
   {
     name: 'AssistNet',
-    type: 'Reference Server',
-    level: 'L2',
-    description: 'Production AI assistant network with full OAP server, intent based discovery, four layer policy engine, hash chained receipts, and GDPR primitives.',
+    type: 'AI Assistant Platform',
+    level: 'L1-NC',
+    description: 'Production AI assistant network with full OAP server, intent based discovery, four layer policy engine, hash chained receipts, and GDPR primitives. Non commercial profile (RFC 0025).',
     url: 'https://assistant-net.vercel.app/oap',
     manifest: 'https://assistant-net.vercel.app/.well-known/oap-tool.json',
     language: 'JavaScript',
