@@ -22,7 +22,11 @@ function parseFrontMatter(md: string, filename: string, id: string, slug: string
   const statusMatch = md.match(/\*\*Status:\*\*\s*(.+)/);
   const wgMatch = md.match(/\*\*Working Group:\*\*\s*(.+)/);
   const targetMatch = md.match(/\*\*Targets:\*\*\s*(.+)/);
-  const createdMatch = md.match(/\*\*Created:\*\*\s*(.+)/);
+  // Some RFCs use **Created:**, others use **Date:**. Accept either.
+  const createdMatch = md.match(/\*\*Created:\*\*\s*(.+)/) ?? md.match(/\*\*Date:\*\*\s*(.+)/);
+  // Strip an optional "OAP-CORE " prefix from Targets so the index renders
+  // "v1.2" rather than "vOAP-CORE 1.2" regardless of how the RFC author wrote it.
+  const target = targetMatch?.[1]?.trim().replace(/^OAP-CORE\s+/i, '');
   return {
     id,
     slug,
@@ -30,7 +34,7 @@ function parseFrontMatter(md: string, filename: string, id: string, slug: string
     title: titleMatch?.[1]?.trim() ?? `RFC ${id}`,
     status: statusMatch?.[1]?.trim() ?? 'Draft',
     workingGroup: wgMatch?.[1]?.trim(),
-    targetVersion: targetMatch?.[1]?.trim(),
+    targetVersion: target,
     created: createdMatch?.[1]?.trim(),
   };
 }
