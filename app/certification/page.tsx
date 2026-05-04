@@ -29,12 +29,14 @@ const tiers = [
 ];
 
 const threats = [
-  { t: 'Forged Receipt', m: 'Receipts are signed with the implementation\'s DID key. Verifiers resolve the public key from the DID Document and check the Ed25519 signature mechanically. The OAP Registry CI gate also re-validates every signature on every Pull Request.' },
+  { t: 'Forged Receipt', m: 'Receipts are signed with the implementation\'s DID key. Verifiers resolve the public key from the DID Document and check the Ed25519 signature mechanically. The OAP Registry CI gate enforces this on every Pull Request: the signature-verify job fetches the listed Receipt, recomputes the canonical bytes, fetches the listing\'s did:web Document, and rejects the listing unless at least one signature verifies against a published verificationMethod.' },
   { t: 'Placeholder signatures', m: 'RFC 0019 section 7.3 forbids any signature value matching PLACEHOLDER_NOT_FOR_PRODUCTION, unsigned-reference, or placeholder:* prefixes. The reference verifier rejects them. The Registry CI gate rejects them. attest.js will not emit them: it requires --signing-key.' },
   { t: 'Expired Receipt replay', m: 'Every Receipt declares not_after. Verifiers reject Receipts past expiry. Maximum validity is 90 days. The Registry tracks expiry and surfaces stale listings.' },
-  { t: 'Sybil-attacker peer-witness farm', m: 'Peer witnesses must themselves hold valid L4+ Receipts (verified live by the Verifier). The OAP Registry applies a 30-day domain-age sybil filter (whois) before merging any new listing. L5 additionally requires that no two witnesses share a controlling organization.' },
+  { t: 'Sybil-attacker peer-witness farm', m: 'Peer witnesses must themselves hold valid L4+ Receipts. The Registry CI peer-witnesses job iterates every witness in the candidate Receipt, looks the witness DID up in the live Registry, and falls back to fetching the witness\' own Receipt to confirm it currently claims L4 or L5 within an unexpired validity window. The OAP Registry also applies a 30-day domain-age sybil filter (whois) before merging any new listing.' },
+  { t: 'Non-independent L5 witnesses', m: 'L5 listings additionally require at least three peer witnesses with three distinct DIDs AND three distinct controller domains (the controller domain is derived from did:web hostnames). The Registry CI peer-witnesses job rejects any L5 candidate whose witnesses share a controller. The same independence check runs as the peer-witness-independence behavior probe in the conformance suite.' },
+  { t: 'Missing L5 external audit', m: 'L5 listings must reference a current external_audit attestation in their Receipt. The Registry CI l5-external-audit job rejects any L5 candidate whose Receipt is missing the external_audit block, has an audit framework outside SOC2-Type-II, ISO-27001, ISO-42001, or equivalent, lacks an auditor_did, or whose attestation has expired.' },
   { t: 'Captured Maintainer roster', m: 'The Registry is append-only. Historic Receipts cannot be retroactively forged. Mirroring is encouraged; the canonical state is reconstructible from any mirror. A community fork remains viable in the event of a hostile takeover.' },
-  { t: 'Compromised signing key', m: 'Implementations publish a revocation entry in the OAP Registry signed by their DID Document\'s recovery key, or by three peer witnesses (forced revocation). Receipts signed after the suspected compromise time are flagged.' },
+  { t: 'Compromised signing key', m: 'Implementations publish a revocation entry in the OAP Registry signed by their DID Document\'s recovery key, or by three peer witnesses (forced revocation). Receipts signed after the suspected compromise time are flagged. Revocation evaluator is in active development; current state of the gate is documented in the registry repository.' },
 ];
 
 export default function CertificationPage() {
@@ -81,7 +83,7 @@ export default function CertificationPage() {
       </ul>
 
       <p className="text-white/55 text-sm">
-        References: <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/RFC-0019-conformance-testing-and-implementability">RFC 0019</a>, <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/RFC-0025-non-commercial-conformance-profile">RFC 0025</a>, <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/RFC-0026-registry-protocol">RFC 0026</a>, <a className="underline underline-offset-4 text-indigo-300" href="/conformance">Conformance Levels</a>, <a className="underline underline-offset-4 text-indigo-300" href="/registry">OAP Registry</a>.
+        References: <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/0019">RFC 0019</a>, <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/0025">RFC 0025</a>, <a className="underline underline-offset-4 text-indigo-300" href="/rfcs/0026">RFC 0026</a>, <a className="underline underline-offset-4 text-indigo-300" href="/conformance">Conformance Levels</a>, <a className="underline underline-offset-4 text-indigo-300" href="/registry">OAP Registry</a>.
       </p>
     </div>
   );
