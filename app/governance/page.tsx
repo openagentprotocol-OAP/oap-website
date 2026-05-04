@@ -17,7 +17,7 @@ export default function GovernancePage() {
           <li><span className="text-emerald-300">Active</span>{' '}<span className="text-white/70">Working Groups as GitHub Discussion categories (governance/WORKING-GROUPS.md)</span></li>
           <li><span className="text-emerald-300">Active</span>{' '}<span className="text-white/70">Maintainer roster and Peer Review Quorum (governance/MAINTAINERS.md)</span></li>
           <li><span className="text-emerald-300">Active</span>{' '}<span className="text-white/70">Conformance test suite + signed Receipts (RFC 0019)</span></li>
-          <li><span className="text-amber-300">Bootstrap</span>{' '}<span className="text-white/70">OAP Registry repository (RFC 0026): scaffold in progress at <code className="font-mono text-xs">openagentprotocol-OAP/oap-registry</code></span></li>
+          <li><span className="text-emerald-300">Active</span>{' '}<span className="text-white/70">OAP Registry repository (RFC 0026) at <code className="font-mono text-xs">openagentprotocol-OAP/oap-registry</code></span></li>
           <li><span className="text-amber-300">Bootstrap</span>{' '}<span className="text-white/70">Maintainer roster: 1 (looking for the next 3+)</span></li>
           <li><span className="text-white/40">Not planned</span>{' '}<span className="text-white/40">Foundation, board, association, or any legal entity. OAP will never have one.</span></li>
         </ul>
