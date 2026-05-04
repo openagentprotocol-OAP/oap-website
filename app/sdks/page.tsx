@@ -1,8 +1,8 @@
 export const metadata = { title: 'SDKs' };
 
 const sdks = [
-  { lang: 'TypeScript', pkg: '@oap/sdk', install: 'npm install @oap/sdk', status: 'preview' },
-  { lang: 'Python',     pkg: 'oap-sdk',  install: 'pip install oap-sdk',  status: 'preview' },
+  { lang: 'TypeScript', pkg: '@openagentprotocol/sdk', install: 'npm install @openagentprotocol/sdk', status: 'preview', url: 'https://www.npmjs.com/package/@openagentprotocol/sdk' },
+  { lang: 'Python',     pkg: 'oap-sdk',                  install: 'pip install oap-sdk',                  status: 'preview', url: 'https://pypi.org/project/oap-sdk/' },
   { lang: 'Go',         pkg: 'github.com/openagentprotocol/oap-go', install: 'go get github.com/openagentprotocol/oap-go', status: 'planned' },
   { lang: 'Rust',       pkg: 'oap',      install: 'cargo add oap',        status: 'planned' },
 ];
@@ -30,7 +30,11 @@ export default function SdksPage() {
               }`}>{s.status}</span>
             </div>
             <pre className="bg-ink-800 border border-white/8 rounded-lg p-3 text-[12.5px] font-mono text-white/85 overflow-x-auto"><code>{s.install}</code></pre>
-            <div className="text-xs text-white/45 font-mono mt-3">{s.pkg}</div>
+            {s.url ? (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" className="text-xs text-indigo-300 font-mono mt-3 inline-block hover:underline">{s.pkg}</a>
+            ) : (
+              <div className="text-xs text-white/45 font-mono mt-3">{s.pkg}</div>
+            )}
           </div>
         ))}
       </div>
@@ -40,11 +44,11 @@ export default function SdksPage() {
           <div className="px-4 py-2.5 border-b border-white/5 bg-white/[0.02] text-[11px] font-mono text-white/45">
             server.ts
           </div>
-          <pre className="p-5 text-[12.5px] leading-relaxed font-mono text-white/85 overflow-x-auto"><code>{`import { OapServer } from '@oap/sdk';
+          <pre className="p-5 text-[12.5px] leading-relaxed font-mono text-white/85 overflow-x-auto"><code>{`import { OapServer } from '@openagentprotocol/sdk';
 
 const server = new OapServer({
   did: 'did:web:tool.example',
-  conformance: 'L2',
+  conformance: 'L1-NC',
 });
 
 server.action({
@@ -53,6 +57,7 @@ server.action({
   inputSchema: TaskInput,
   outputSchema: Task,
   riskClass: 'low',
+  sideEffects: 'write',
   handler: async ({ input, context }) => {
     return await db.tasks.create(input);
   },
