@@ -7,15 +7,15 @@ export const metadata = {
 const levels = [
   { code: 'L0',    name: 'Compatible',     probe: 'machine-verifiable', desc: 'Implements MCP or A2A and publishes a minimal OAP Manifest mapping. Self-attested.' },
   { code: 'L1',    name: 'Discoverable',   probe: 'machine-verifiable', desc: 'Full Manifest, categories, examples, machine-validated by the OAP test suite. Self-signed Conformance Receipt.' },
-  { code: 'L2',    name: 'Billable',       probe: 'probes in progress', desc: 'L1 plus Pricing, Auth, Subscription, Wallet, refund endpoint. Self-signed.' },
-  { code: 'L3',    name: 'Trusted',        probe: 'probes in progress', desc: 'L2 plus Audit Log, Data Policy, CCC, Verified Publisher, Multi-Party Review for high-risk Actions. DNS or DID-based publisher verification.' },
-  { code: 'L4',    name: 'Collaborative',  probe: 'probes in progress', desc: 'L3 plus Multi-Agent Coordination, Conflict Resolution, Change Broadcast, Coordination Sessions. Requires at least one independent peer-witness signature, anchored in the OAP Registry.' },
-  { code: 'L5',    name: 'Peer-Certified', probe: 'probes in progress', desc: 'L4 plus an independent third-party security audit (SOC 2 Type II, ISO 27001, or equivalent). Requires at least three independent peer-witness signatures from L4+ implementations, anchored in the OAP Registry.' },
+  { code: 'L2',    name: 'Billable',       probe: 'machine-verifiable', desc: 'L1 plus Pricing, Auth, Subscription, Wallet, refund endpoint. Self-signed.' },
+  { code: 'L3',    name: 'Trusted',        probe: 'machine-verifiable', desc: 'L2 plus Audit Log, Data Policy, CCC, Verified Publisher, Multi-Party Review for high-risk Actions. DNS or DID-based publisher verification.' },
+  { code: 'L4',    name: 'Collaborative',  probe: 'machine-verifiable', desc: 'L3 plus Multi-Agent Coordination, Conflict Resolution, Change Broadcast, Coordination Sessions. Requires at least one independent peer-witness signature, anchored in the OAP Registry.' },
+  { code: 'L5',    name: 'Peer-Certified', probe: 'machine-verifiable', desc: 'L4 plus an independent third-party security audit (SOC 2 Type II, ISO 27001, or equivalent). Requires at least three independent peer-witness signatures from L4+ implementations, anchored in the OAP Registry.' },
 ];
 
 const profiles = [
   { code: 'L1-NC', name: 'L1 Non-Commercial', probe: 'machine-verifiable', desc: 'L1 with Wallet, Subscription, and refund waived. For BYOK platforms, self-hosted deployments, and grant- or donation-funded services.' },
-  { code: 'L3-NC', name: 'L3 Non-Commercial', probe: 'probes in progress', desc: 'L3 with the Commerce Plane requirements waived. Trust requirements (Audit Log, Data Policy, CCC, Verified Publisher) still apply in full.' },
+  { code: 'L3-NC', name: 'L3 Non-Commercial', probe: 'machine-verifiable', desc: 'L3 with the Commerce Plane requirements waived. Trust requirements (Audit Log, Data Policy, CCC, Verified Publisher) still apply in full.' },
 ];
 
 export default function ConformancePage() {
@@ -59,8 +59,8 @@ export default function ConformancePage() {
         ))}
       </div>
 
-      <div className="p-4 rounded-lg border border-amber-400/20 bg-amber-500/[0.04] mb-12 text-[13px] leading-relaxed text-amber-100/80">
-        <strong className="text-amber-200">Probe coverage status.</strong> L0, L1, and L1-NC have complete machine-verifiable probes in <code className="font-mono text-xs">test-suite/</code> today and pass 44 out of 44 against the reference server. Probes for L2 commerce, L3 trust controls, L3-NC, L4 coordination, and L5 peer-witness independence are specified in <a className="underline underline-offset-4 text-amber-200" href="/rfcs/0019">RFC 0019</a> and <a className="underline underline-offset-4 text-amber-200" href="https://github.com/openagentprotocol-OAP/oap-spec/blob/main/test-suite/levels/levels.json" target="_blank" rel="noopener noreferrer">levels.json</a> but the test fixtures are still being written. Implementations may submit Receipts that claim higher levels today; Registry CI will accept them once peer-witness signatures are present, but the suite will not yet machine-validate the underlying claims.
+      <div className="p-4 rounded-lg border border-emerald-400/20 bg-emerald-500/[0.04] mb-12 text-[13px] leading-relaxed text-emerald-100/80">
+        <strong className="text-emerald-200">Probe coverage status.</strong> Every level from L0 through L5, plus L1-NC and L3-NC, has machine-verifiable probes in <code className="font-mono text-xs">test-suite/behavior/</code>. The reference server claims L0 and L1 honestly and currently passes 58 out of 58 probes (44 active checks plus 14 not-applicable PASSes for capabilities the reference does not claim). Probes for L2 through L5 activate the moment an implementation’s Conformance Receipt claims those levels, and <code className="font-mono text-xs">attest.js</code> ignores not-applicable PASSes when computing credit, so an L1 implementation cannot silently inherit L2..L5 attestation. Probe sources: <a className="underline underline-offset-4 text-emerald-200" href="https://github.com/openagentprotocol-OAP/oap-spec/tree/main/test-suite/behavior" target="_blank" rel="noopener noreferrer">test-suite/behavior</a>, requirements: <a className="underline underline-offset-4 text-emerald-200" href="https://github.com/openagentprotocol-OAP/oap-spec/blob/main/test-suite/levels/levels.json" target="_blank" rel="noopener noreferrer">levels.json</a>, audited Receipt format: <a className="underline underline-offset-4 text-emerald-200" href="/rfcs/0019">RFC 0019</a>.
       </div>
 
       <h2 className="text-xl font-bold text-white mb-3 tracking-tight">How to claim a level</h2>
