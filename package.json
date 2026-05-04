@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/sync-rfcs.mjs && next build",
     "start": "next start",
     "sync-rfcs": "node scripts/sync-rfcs.mjs"
   },
