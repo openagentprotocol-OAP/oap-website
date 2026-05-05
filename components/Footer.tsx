@@ -42,7 +42,7 @@ export async function Footer() {
       <div className="border-t border-white/5">
         <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/40">
           <div>© Open Agent Protocol contributors. Specification text licensed under CC BY 4.0. Reference code under Apache 2.0.</div>
-          <div>v1.0 · {rfcs.length} RFCs in flight</div>
+          <div>v1.0 · <span className="text-white/20">T.F.</span> · {rfcs.length} RFCs in flight</div>
         </div>
       </div>
     </footer>
