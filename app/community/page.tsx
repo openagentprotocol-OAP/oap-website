@@ -22,10 +22,10 @@ export default function CommunityPage() {
         />
         <Card
           icon="✉️"
-          title="Mailing list"
-          desc="Long form proposals, announcements, and meeting notes. Low traffic."
-          link="mailto:announce-subscribe@openagentprotocol.eu"
-          cta="Subscribe"
+          title="GitHub Discussions"
+          desc="Long form proposals, announcements, and meeting notes."
+          link="https://github.com/openagentprotocol-OAP/oap-spec/discussions"
+          cta="Join the discussion"
         />
         <Card
           icon="🐙"
@@ -46,9 +46,7 @@ export default function CommunityPage() {
       <div className="mt-10 p-6 rounded-xl border border-white/8 bg-white/[0.02]">
         <div className="text-sm font-semibold text-white mb-2">Reporting a security issue</div>
         <p className="text-sm text-white/60 leading-relaxed mb-3">
-          Please do not file public issues for security vulnerabilities. Email
-          <a href="mailto:security@openagentprotocol.eu" className="underline underline-offset-4 text-indigo-300 mx-1">security@openagentprotocol.eu</a>
-          with details, or file a private GitHub Security Advisory at
+          Please do not file public issues for security vulnerabilities. Please use GitHub Security Advisories to report vulnerabilities securely. You can file a private GitHub Security Advisory at
           <a href="https://github.com/openagentprotocol-OAP/oap-spec/security/advisories/new" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 text-indigo-300 mx-1">oap-spec/security/advisories</a>.
           Acknowledgement within 72 hours, coordinated disclosure typically within 90 days. Full policy in <code className="font-mono text-xs">oap-spec/SECURITY.md</code>.
         </p>

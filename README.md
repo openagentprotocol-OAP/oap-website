@@ -64,30 +64,15 @@ Domain candidates (in order of preference):
 - `openagentprotocol.dev`
 - `oap.foundation`
 
-### 2. Foundation email
-
-Set up a catch all forwarding inbox at the registered domain via:
-- **ProtonMail** custom domain
-- **Fastmail** custom domain
-- **Migadu** (cheapest for many aliases)
-
-Required addresses:
-- `foundation@openagentprotocol.eu`
-- `security@openagentprotocol.eu`
-- `conduct@openagentprotocol.eu`
-- `trademark@openagentprotocol.eu`
-- `announce@openagentprotocol.eu`
-
-### 3. GitHub organization
+### 2. GitHub organization
 
 `openagentprotocol-OAP` already exists. Configure:
 - Org name: "OAP Foundation"
-- Org email: `foundation@openagentprotocol.eu`
 - Org website: `https://openagentprotocol.eu`
-- All commits authored as `openagentprotocol <oap@openagentprotocol.eu>`. Set this globally in any clone:
+- All commits authored as `openagentprotocol <oap-github@users.noreply.github.com>`. Set this globally in any clone:
   ```bash
   git config user.name "openagentprotocol"
-  git config user.email "oap@openagentprotocol.eu"
+  git config user.email "oap-github@users.noreply.github.com"
   ```
 - Disable GitHub Pages contributor avatars on org pages.
 

@@ -25,7 +25,7 @@ export default function TrademarkPage() {
           <li>Claiming OAP conformance at a level the Conformance Test Suite has not certified.</li>
         </ul>
         <p className="text-sm">
-          Questions: <a href="mailto:trademark@openagentprotocol.eu" className="text-indigo-300 underline underline-offset-4">trademark@openagentprotocol.eu</a>.
+          Questions: <a href="https://github.com/openagentprotocol-OAP/oap-spec/discussions" className="text-indigo-300 underline underline-offset-4">Ask in GitHub Discussions</a>.
         </p>
       </div>
     </div>
